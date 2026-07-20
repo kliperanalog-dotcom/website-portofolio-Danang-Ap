@@ -6,7 +6,7 @@
     <title>Danang Ageng Priyambada | Admin, Content Creator & Editor</title>
     <!-- FontAwesome & Google Fonts -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;600;700;800&display=swap" rel="stylesheet">
     
     <style>
         * {
@@ -17,42 +17,54 @@
         }
 
         body {
-            background-color: #0b0b0b;
-            color: #e0e0e0;
-            font-family: 'Poppins', -apple-system, BlinkMacSystemFont, sans-serif;
+            background-color: #070708;
+            color: #e2e8f0;
+            font-family: 'Plus Jakarta Sans', sans-serif;
             line-height: 1.6;
             overflow-x: hidden;
         }
 
-        /* --- PRELOADER (AUTO-TIMEOUT SAFETY) --- */
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #070708;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #f39c12;
+            border-radius: 4px;
+        }
+
+        /* --- PRELOADER --- */
         #preloader {
             position: fixed;
             top: 0; left: 0;
             width: 100%; height: 100vh;
-            background-color: #0b0b0b;
+            background-color: #070708;
             display: flex;
             flex-direction: column;
             justify-content: center;
             align-items: center;
             z-index: 99999;
-            transition: opacity 0.5s ease, visibility 0.5s ease;
+            transition: opacity 0.6s cubic-bezier(0.16, 1, 0.3, 1), visibility 0.6s;
         }
 
         .spinner {
-            width: 50px; height: 50px;
-            border: 3px solid rgba(255, 255, 255, 0.1);
+            width: 60px; height: 60px;
+            border: 3px solid rgba(243, 156, 18, 0.1);
             border-top-color: #f39c12;
             border-radius: 50%;
-            animation: spin 1s linear infinite;
-            margin-bottom: 15px;
+            animation: spin 0.8s cubic-bezier(0.68, -0.55, 0.27, 1.55) infinite;
+            margin-bottom: 20px;
         }
 
         .loader-text {
             font-size: 0.85rem;
-            letter-spacing: 3px;
+            letter-spacing: 4px;
             text-transform: uppercase;
             color: #fff;
-            font-weight: 600;
+            font-weight: 700;
         }
 
         @keyframes spin {
@@ -69,93 +81,136 @@
         nav {
             position: fixed;
             top: 0; left: 0; width: 100%;
-            background: rgba(11, 11, 11, 0.9);
-            backdrop-filter: blur(10px);
+            background: rgba(7, 7, 8, 0.75);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
             z-index: 1000;
-            padding: 15px 20px;
-            border-bottom: 1px solid #1f1f1f;
+            padding: 18px 5%;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
             display: flex;
             justify-content: space-between;
             align-items: center;
         }
 
         .nav-logo {
-            font-weight: 700;
-            font-size: 1.1rem;
+            font-weight: 800;
+            font-size: 1.2rem;
             color: #fff;
-            letter-spacing: 1px;
+            letter-spacing: 1.5px;
+            background: linear-gradient(135deg, #fff 0%, #f39c12 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
         }
 
         .nav-links {
             display: flex;
-            gap: 15px;
+            gap: 20px;
             list-style: none;
             overflow-x: auto;
             white-space: nowrap;
         }
 
         .nav-links a {
-            color: #aaa;
+            color: #94a3b8;
             text-decoration: none;
             font-size: 0.85rem;
-            transition: color 0.3s;
+            font-weight: 600;
+            transition: all 0.3s ease;
         }
 
         .nav-links a:hover {
             color: #f39c12;
+            text-shadow: 0 0 10px rgba(243, 156, 18, 0.5);
         }
 
         /* --- HERO SECTION --- */
         #hero {
             min-height: 100vh;
-            padding-top: 90px;
+            padding-top: 100px;
             display: flex;
             flex-direction: column;
             justify-content: center;
             align-items: center;
             text-align: center;
             position: relative;
-            background: linear-gradient(180deg, rgba(11,11,11,0.7) 0%, rgba(11,11,11,1) 100%), 
-                        url('https://images.unsplash.com/photo-1574717024653-61fd2cf4d44d?w=1200') center/cover no-repeat;
-            padding-bottom: 50px;
+            background: radial-gradient(circle at center, rgba(243, 156, 18, 0.12) 0%, rgba(7,7,8,1) 70%);
+            padding-bottom: 60px;
+        }
+
+        .profile-img-container {
+            position: relative;
+            margin-bottom: 25px;
+        }
+
+        .profile-img-container::before {
+            content: '';
+            position: absolute;
+            inset: -5px;
+            background: linear-gradient(45deg, #f39c12, #e67e22, transparent);
+            border-radius: 50%;
+            filter: blur(10px);
+            animation: pulseGlow 3s infinite alternate;
+        }
+
+        @keyframes pulseGlow {
+            0% { opacity: 0.4; transform: scale(0.98); }
+            100% { opacity: 0.9; transform: scale(1.03); }
         }
 
         .profile-img {
-            width: 130px;
-            height: 130px;
+            position: relative;
+            width: 140px;
+            height: 140px;
             border-radius: 50%;
-            border: 3px solid #f39c12;
+            border: 2px solid rgba(255,255,255,0.2);
             object-fit: cover;
-            margin-bottom: 20px;
-            box-shadow: 0 0 25px rgba(243, 156, 18, 0.4);
         }
 
         #hero h1 {
-            font-size: 2.2rem;
+            font-size: 2.5rem;
+            font-weight: 800;
             color: #fff;
-            margin-bottom: 5px;
-            letter-spacing: 1px;
+            margin-bottom: 8px;
+            letter-spacing: -0.5px;
         }
 
         #hero p.tagline {
             color: #f39c12;
-            font-size: 0.95rem;
-            margin-bottom: 20px;
-            font-weight: 400;
+            font-size: 1rem;
+            margin-bottom: 25px;
+            font-weight: 600;
+            letter-spacing: 1px;
+            text-transform: uppercase;
         }
 
-        /* --- ANIMASI POP-UP / FADE IN ON SCROLL --- */
-        .reveal {
+        /* --- EFEK SCROLL & TRANSISI SLIDE KEREN (SMOOTH REVEAL) --- */
+        .reveal-up {
             opacity: 0;
-            transform: translateY(40px) scale(0.95);
-            transition: all 0.7s cubic-bezier(0.25, 1, 0.5, 1);
+            transform: translateY(60px) scale(0.96);
+            transition: transform 0.9s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.9s cubic-bezier(0.16, 1, 0.3, 1);
+            will-change: transform, opacity;
         }
 
-        .reveal.active {
+        .reveal-slide-left {
+            opacity: 0;
+            transform: translateX(-80px);
+            transition: transform 0.9s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.9s cubic-bezier(0.16, 1, 0.3, 1);
+            will-change: transform, opacity;
+        }
+
+        .reveal-slide-right {
+            opacity: 0;
+            transform: translateX(80px);
+            transition: transform 0.9s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.9s cubic-bezier(0.16, 1, 0.3, 1);
+            will-change: transform, opacity;
+        }
+
+        .reveal-active {
             opacity: 1;
-            transform: translateY(0) scale(1);
+            transform: translate(0) scale(1);
         }
 
+        /* Staggered Delay */
         .delay-1 { transition-delay: 0.1s; }
         .delay-2 { transition-delay: 0.2s; }
         .delay-3 { transition-delay: 0.3s; }
@@ -163,248 +218,242 @@
 
         /* --- COMMON SECTION STYLES --- */
         section {
-            padding: 80px 20px;
-            max-width: 1100px;
+            padding: 100px 5%;
+            max-width: 1200px;
             margin: 0 auto;
         }
 
         .section-title {
             text-align: center;
-            font-size: 1.6rem;
+            font-size: 1.8rem;
+            font-weight: 800;
             color: #fff;
-            margin-bottom: 45px;
+            margin-bottom: 50px;
             position: relative;
         }
 
         .section-title::after {
             content: '';
-            width: 50px;
-            height: 3px;
-            background: #f39c12;
+            width: 60px;
+            height: 4px;
+            background: linear-gradient(90deg, #f39c12, #e67e22);
             display: block;
-            margin: 10px auto 0;
+            margin: 12px auto 0;
             border-radius: 2px;
+            box-shadow: 0 0 10px rgba(243, 156, 18, 0.5);
         }
 
-        /* --- TENTANG SAYA --- */
         .about-text {
             text-align: center;
-            max-width: 800px;
+            max-width: 850px;
             margin: 0 auto;
-            color: #bbb;
-            font-size: 0.95rem;
-            line-height: 1.8;
+            color: #94a3b8;
+            font-size: 1.05rem;
+            line-height: 1.9;
         }
 
         /* --- SOFTWARE SKILLS --- */
         .skills-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 20px;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 25px;
         }
 
         .skill-card {
-            background: #141414;
-            padding: 25px 20px;
-            border-radius: 12px;
-            border: 1px solid #222;
+            background: rgba(255, 255, 255, 0.02);
+            padding: 30px 20px;
+            border-radius: 16px;
+            border: 1px solid rgba(255, 255, 255, 0.05);
             text-align: center;
-            transition: transform 0.3s, border-color 0.3s;
+            backdrop-filter: blur(10px);
+            transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
         }
 
         .skill-card:hover {
-            transform: translateY(-8px);
-            border-color: #f39c12;
+            transform: translateY(-10px) scale(1.02);
+            border-color: rgba(243, 156, 18, 0.4);
+            box-shadow: 0 20px 30px rgba(0,0,0,0.5), 0 0 15px rgba(243, 156, 18, 0.15);
         }
 
         .skill-card i {
-            font-size: 2.2rem;
+            font-size: 2.5rem;
             color: #f39c12;
-            margin-bottom: 12px;
+            margin-bottom: 15px;
         }
 
         .skill-card h4 {
             color: #fff;
-            font-size: 1.05rem;
-            margin-bottom: 5px;
+            font-size: 1.1rem;
+            margin-bottom: 8px;
         }
 
         .skill-card p {
-            color: #888;
-            font-size: 0.8rem;
+            color: #64748b;
+            font-size: 0.85rem;
         }
 
-        /* --- MANAGEMENT & STATS --- */
+        /* --- MANAGEMENT STATS --- */
         .analytics-box {
-            background: linear-gradient(145deg, #161616, #101010);
-            padding: 30px;
-            border-radius: 15px;
-            border: 1px solid #222;
+            background: linear-gradient(135deg, rgba(255,255,255,0.03) 0%, rgba(243,156,18,0.05) 100%);
+            padding: 40px;
+            border-radius: 20px;
+            border: 1px solid rgba(243, 156, 18, 0.2);
             text-align: center;
-            max-width: 700px;
-            margin: 0 auto 40px;
+            max-width: 750px;
+            margin: 0 auto 50px;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.4);
         }
 
         .analytics-box h3 {
             color: #fff;
-            font-size: 1.4rem;
+            font-size: 1.5rem;
             margin-bottom: 5px;
         }
 
         .analytics-box .account-handle {
             color: #f39c12;
-            font-size: 0.9rem;
-            margin-bottom: 20px;
+            font-size: 0.95rem;
+            margin-bottom: 25px;
+            font-weight: 600;
         }
 
         .stats-group {
             display: flex;
             justify-content: space-around;
             flex-wrap: wrap;
-            gap: 20px;
+            gap: 25px;
         }
 
         .stat-item .number {
-            font-size: 2.2rem;
-            font-weight: 700;
+            font-size: 2.5rem;
+            font-weight: 800;
             color: #fff;
+            text-shadow: 0 0 15px rgba(255,255,255,0.2);
         }
 
         .stat-item .label {
             font-size: 0.8rem;
-            color: #888;
+            color: #94a3b8;
             text-transform: uppercase;
+            letter-spacing: 1px;
         }
 
-        /* --- GALLERY FOTO PERKEMBANGAN & PRODUK --- */
-        .photo-grid-2 {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 20px;
-        }
-
-        .photo-grid-5 {
+        /* --- MEDIA GRID (UKURAN RASIO 9:16 UNTUK FOTO & VIDEO) --- */
+        .media-grid-916 {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 20px;
-        }
-
-        .photo-card {
-            background: #141414;
-            border-radius: 12px;
-            overflow: hidden;
-            border: 1px solid #222;
-            transition: transform 0.3s;
-        }
-
-        .photo-card:hover {
-            transform: translateY(-5px);
-            border-color: #f39c12;
-        }
-
-        .photo-card img {
-            width: 100%;
-            height: 220px;
-            object-fit: cover;
-            display: block;
-        }
-
-        .photo-info {
-            padding: 15px;
-        }
-
-        .photo-info h4 {
-            color: #fff;
-            font-size: 0.95rem;
-            margin-bottom: 5px;
-        }
-
-        .photo-info p {
-            color: #888;
-            font-size: 0.8rem;
-        }
-
-        /* --- VIDEO PORTFOLIO SECTION (5 VIDEOS) --- */
-        .video-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
             gap: 25px;
         }
 
-        .video-card {
-            background: #141414;
-            border-radius: 12px;
+        .media-card {
+            background: #0f0f12;
+            border-radius: 16px;
             overflow: hidden;
-            border: 1px solid #222;
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
             display: flex;
             flex-direction: column;
         }
 
-        .video-wrapper {
+        .media-card:hover {
+            transform: translateY(-8px);
+            border-color: #f39c12;
+            box-shadow: 0 15px 30px rgba(0,0,0,0.6);
+        }
+
+        .wrapper-916 {
             position: relative;
             width: 100%;
+            aspect-ratio: 9/16; /* Format Vertikal TikTok / Reels / Stories */
             background: #000;
-            aspect-ratio: 9/16;
-            max-height: 380px;
             overflow: hidden;
         }
 
-        .video-wrapper video {
+        .wrapper-916 video, .wrapper-916 img {
             width: 100%;
             height: 100%;
             object-fit: cover;
+            display: block;
         }
 
         .video-controls {
             padding: 12px;
-            background: #181818;
+            background: #141418;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            border-top: 1px solid #252525;
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
         }
 
         .btn-play {
-            background: #f39c12;
+            background: linear-gradient(135deg, #f39c12, #e67e22);
             color: #000;
             border: none;
-            padding: 6px 14px;
+            padding: 8px 16px;
             border-radius: 20px;
             font-size: 0.8rem;
-            font-weight: 600;
+            font-weight: 700;
             cursor: pointer;
             display: inline-flex;
             align-items: center;
             gap: 6px;
-            transition: background 0.3s;
+            transition: all 0.3s;
         }
 
         .btn-play:hover {
-            background: #e67e22;
+            transform: scale(1.05);
+            box-shadow: 0 0 10px rgba(243, 156, 18, 0.5);
         }
 
-        .video-info {
-            padding: 15px;
+        .media-info {
+            padding: 18px;
         }
 
-        .video-info h4 {
+        .media-info h4 {
             color: #fff;
             font-size: 0.95rem;
             margin-bottom: 5px;
         }
 
-        .video-info p {
-            color: #888;
+        .media-info p {
+            color: #64748b;
             font-size: 0.8rem;
+        }
+
+        /* --- FOTO BUKTI ANALITIK (LAYOUT 2 KOLOM) --- */
+        .photo-grid-2 {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+        }
+
+        .photo-card-analytic {
+            background: #0f0f12;
+            border-radius: 16px;
+            overflow: hidden;
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            transition: all 0.4s ease;
+        }
+
+        .photo-card-analytic:hover {
+            border-color: #f39c12;
+            transform: translateY(-5px);
+        }
+
+        .photo-card-analytic img {
+            width: 100%;
+            height: 240px;
+            object-fit: cover;
         }
 
         /* --- KONTAK & BUTTONS --- */
         .contact-box {
             text-align: center;
-            background: #141414;
-            padding: 40px 20px;
-            border-radius: 15px;
-            border: 1px solid #222;
+            background: rgba(255, 255, 255, 0.02);
+            padding: 50px 20px;
+            border-radius: 20px;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
         }
 
         .btn-group {
@@ -412,43 +461,49 @@
             justify-content: center;
             gap: 15px;
             flex-wrap: wrap;
-            margin-top: 25px;
+            margin-top: 30px;
         }
 
         .btn {
-            padding: 12px 25px;
+            padding: 12px 28px;
             border-radius: 30px;
             text-decoration: none;
             color: #fff;
-            background: #222;
-            border: 1px solid #333;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
             font-size: 0.9rem;
-            transition: all 0.3s;
+            font-weight: 600;
+            transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
         }
 
         .btn-primary {
-            background: #f39c12;
+            background: linear-gradient(135deg, #f39c12, #e67e22);
             color: #000;
-            font-weight: 600;
+            font-weight: 700;
             border: none;
         }
 
         .btn:hover {
-            transform: translateY(-3px);
+            transform: translateY(-4px);
+            border-color: #f39c12;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.4);
         }
 
         footer {
             text-align: center;
-            padding: 30px;
-            color: #555;
-            font-size: 0.8rem;
-            border-top: 1px solid #181818;
+            padding: 35px;
+            color: #475569;
+            font-size: 0.85rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
         }
     </style>
 </head>
 <body>
 
-    <!-- 1. PRELOADER ANIMATION -->
+    <!-- 1. PRELOADER -->
     <div id="preloader">
         <div class="spinner"></div>
         <div class="loader-text">DANANG AGENG PRIYAMBADA</div>
@@ -470,43 +525,45 @@
 
     <!-- 3. HERO SECTION -->
     <section id="hero">
-        <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=500" alt="Foto Profil Danang Ageng" class="profile-img reveal">
-        <h1 class="reveal delay-1">DANANG AGENG PRIYAMBADA</h1>
-        <p class="tagline reveal delay-2">Admin, Content Creator & Video Editor</p>
-        <div class="btn-group reveal delay-3">
-            <a href="#videos" class="btn btn-primary">Lihat Karya Video</a>
-            <a href="#contact" class="btn">Hubungi Saya</a>
+        <div class="profile-img-container reveal-up">
+            <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=500" alt="Foto Profil Danang Ageng" class="profile-img">
+        </div>
+        <h1 class="reveal-up delay-1">DANANG AGENG PRIYAMBADA</h1>
+        <p class="tagline reveal-up delay-2">Admin, Content Creator & Video Editor</p>
+        <div class="btn-group reveal-up delay-3">
+            <a href="#videos" class="btn btn-primary"><i class="fas fa-play"></i> Lihat Karya Video</a>
+            <a href="#contact" class="btn"><i class="fas fa-paper-plane"></i> Hubungi Saya</a>
         </div>
     </section>
 
     <!-- 4. TENTANG SAYA -->
     <section id="about">
-        <h2 class="section-title reveal">Tentang Saya</h2>
-        <p class="about-text reveal delay-1">
+        <h2 class="section-title reveal-up">Tentang Saya</h2>
+        <p class="about-text reveal-up delay-1">
             Halo! Saya Danang Ageng Priyambada. Berpengalaman sebagai **Admin, Content Creator, dan Editor Video/Foto**. Saya mengombinasikan strategi manajemen konten, estetika visual gelap & cinematic, serta eksekusi pengeditan presisi tinggi menggunakan tools modern berbasis AI dan aplikasi editing terkini.
         </p>
     </section>
 
     <!-- 5. KEAHLIAN SOFTWARE -->
     <section id="software">
-        <h2 class="section-title reveal">Software & Tools Utama</h2>
+        <h2 class="section-title reveal-up">Software & Tools Utama</h2>
         <div class="skills-grid">
-            <div class="skill-card reveal delay-1">
+            <div class="skill-card reveal-slide-left delay-1">
                 <i class="fas fa-scissors"></i>
                 <h4>CapCut</h4>
                 <p>Editing video pendek, transisi presisi, tempo & pacing cepat untuk TikTok/Reels.</p>
             </div>
-            <div class="skill-card reveal delay-2">
+            <div class="skill-card reveal-slide-left delay-2">
                 <i class="fas fa-sliders-h"></i>
                 <h4>Lightroom</h4>
                 <p>Color grading profesional, tone warna dark & vintage noise aesthetic.</p>
             </div>
-            <div class="skill-card reveal delay-3">
+            <div class="skill-card reveal-slide-right delay-3">
                 <i class="fas fa-palette"></i>
                 <h4>Canva</h4>
                 <p>Layouting cepat, pembuatan thumbnail, banner, dan materi promosi visual.</p>
             </div>
-            <div class="skill-card reveal delay-4">
+            <div class="skill-card reveal-slide-right delay-4">
                 <i class="fas fa-robot"></i>
                 <h4>AI Tools</h4>
                 <p>Optimasi prompt visual, image generation & automasi ide skrip konten.</p>
@@ -514,11 +571,11 @@
         </div>
     </section>
 
-    <!-- 6. MANAJEMEN AKUN & FOTO PERKEMBANGAN (EL BRADER GUITAR SHOP) -->
+    <!-- 6. MANAJEMEN AKUN & FOTO PERKEMBANGAN -->
     <section id="management">
-        <h2 class="section-title reveal">Kelola Akun & Perkembangan</h2>
+        <h2 class="section-title reveal-up">Kelola Akun & Perkembangan</h2>
         
-        <div class="analytics-box reveal delay-1">
+        <div class="analytics-box reveal-up delay-1">
             <h3>El Brader Guitar Shop</h3>
             <p class="account-handle">@elbraderguitar</p>
             <div class="stats-group">
@@ -533,19 +590,19 @@
             </div>
         </div>
 
-        <h3 style="text-align: center; color: #aaa; margin-bottom: 25px; font-size: 1.1rem;" class="reveal">Bukti Perkembangan Akun (2 Foto)</h3>
+        <h3 style="text-align: center; color: #94a3b8; margin-bottom: 25px; font-size: 1.1rem;" class="reveal-up">Bukti Perkembangan Akun (2 Foto)</h3>
         
         <div class="photo-grid-2">
-            <div class="photo-card reveal delay-1">
+            <div class="photo-card-analytic reveal-slide-left delay-1">
                 <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=600" alt="Grafik Statistik 1">
-                <div class="photo-info">
+                <div class="media-info">
                     <h4>Analitik Engagement & Impresi</h4>
                     <p>Bukti lonjakan jangkauan penonton dan interaksi konten.</p>
                 </div>
             </div>
-            <div class="photo-card reveal delay-2">
+            <div class="photo-card-analytic reveal-slide-right delay-2">
                 <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=600" alt="Grafik Statistik 2">
-                <div class="photo-info">
+                <div class="media-info">
                     <h4>Pertumbuhan Followers & Views</h4>
                     <p>Laporan konsistensi perkembangan akun secara organik.</p>
                 </div>
@@ -553,91 +610,91 @@
         </div>
     </section>
 
-    <!-- 7. HASIL KARYA VIDEO (5 VIDEOS) -->
+    <!-- 7. HASIL KARYA VIDEO (5 VIDEOS - UKURAN 9:16) -->
     <section id="videos">
-        <h2 class="section-title reveal">Hasil Karya Video (5 Video)</h2>
-        <div class="video-grid">
+        <h2 class="section-title reveal-up">Hasil Karya Video (Format 9:16)</h2>
+        <div class="media-grid-916">
             
             <!-- Video 1 -->
-            <div class="video-card reveal delay-1">
-                <div class="video-wrapper">
+            <div class="media-card reveal-up delay-1">
+                <div class="wrapper-916">
                     <video id="vid1" loop muted playsinline poster="https://images.unsplash.com/photo-1511671782779-c97d3d27a1d4?w=600">
                         <source src="https://assets.mixkit.co/videos/preview/mixkit-guitarist-playing-an-acoustic-guitar-41555-large.mp4" type="video/mp4">
                     </video>
                 </div>
                 <div class="video-controls">
-                    <button class="btn-play" onclick="togglePlay('vid1', this)"><i class="fas fa-play"></i> Putar Video</button>
-                    <span style="font-size: 0.75rem; color: #888;">Video 1</span>
+                    <button class="btn-play" onclick="togglePlay('vid1', this)"><i class="fas fa-play"></i> Putar</button>
+                    <span style="font-size: 0.75rem; color: #64748b;">9:16 Reels</span>
                 </div>
-                <div class="video-info">
+                <div class="media-info">
                     <h4>Guitar Showcase POV</h4>
                     <p>Konten promosi produk gitar tone cinematic.</p>
                 </div>
             </div>
 
             <!-- Video 2 -->
-            <div class="video-card reveal delay-2">
-                <div class="video-wrapper">
+            <div class="media-card reveal-up delay-2">
+                <div class="wrapper-916">
                     <video id="vid2" loop muted playsinline poster="https://images.unsplash.com/photo-1461784121038-f088ca1e7714?w=600">
                         <source src="https://assets.mixkit.co/videos/preview/mixkit-hands-holding-a-smartphone-playing-a-video-41551-large.mp4" type="video/mp4">
                     </video>
                 </div>
                 <div class="video-controls">
-                    <button class="btn-play" onclick="togglePlay('vid2', this)"><i class="fas fa-play"></i> Putar Video</button>
-                    <span style="font-size: 0.75rem; color: #888;">Video 2</span>
+                    <button class="btn-play" onclick="togglePlay('vid2', this)"><i class="fas fa-play"></i> Putar</button>
+                    <span style="font-size: 0.75rem; color: #64748b;">9:16 TikTok</span>
                 </div>
-                <div class="video-info">
+                <div class="media-info">
                     <h4>Fast-Paced Editing</h4>
                     <p>Teknik cut ketat tempo cepat khas TikTok.</p>
                 </div>
             </div>
 
             <!-- Video 3 -->
-            <div class="video-card reveal delay-3">
-                <div class="video-wrapper">
+            <div class="media-card reveal-up delay-3">
+                <div class="wrapper-916">
                     <video id="vid3" loop muted playsinline poster="https://images.unsplash.com/photo-1598488035139-bdbb2231ce04?w=600">
                         <source src="https://assets.mixkit.co/videos/preview/mixkit-singing-into-a-microphone-in-a-recording-studio-41558-large.mp4" type="video/mp4">
                     </video>
                 </div>
                 <div class="video-controls">
-                    <button class="btn-play" onclick="togglePlay('vid3', this)"><i class="fas fa-play"></i> Putar Video</button>
-                    <span style="font-size: 0.75rem; color: #888;">Video 3</span>
+                    <button class="btn-play" onclick="togglePlay('vid3', this)"><i class="fas fa-play"></i> Putar</button>
+                    <span style="font-size: 0.75rem; color: #64748b;">9:16 Shorts</span>
                 </div>
-                <div class="video-info">
+                <div class="media-info">
                     <h4>Audio & Studio Session</h4>
                     <p>Visualizer audio dan cuplikan proses kreatif.</p>
                 </div>
             </div>
 
             <!-- Video 4 -->
-            <div class="video-card reveal delay-1">
-                <div class="video-wrapper">
+            <div class="media-card reveal-up delay-1">
+                <div class="wrapper-916">
                     <video id="vid4" loop muted playsinline poster="https://images.unsplash.com/photo-1514525253161-7a46d19cd819?w=600">
                         <source src="https://assets.mixkit.co/videos/preview/mixkit-playing-an-electric-guitar-41554-large.mp4" type="video/mp4">
                     </video>
                 </div>
                 <div class="video-controls">
-                    <button class="btn-play" onclick="togglePlay('vid4', this)"><i class="fas fa-play"></i> Putar Video</button>
-                    <span style="font-size: 0.75rem; color: #888;">Video 4</span>
+                    <button class="btn-play" onclick="togglePlay('vid4', this)"><i class="fas fa-play"></i> Putar</button>
+                    <span style="font-size: 0.75rem; color: #64748b;">9:16 Reels</span>
                 </div>
-                <div class="video-info">
+                <div class="media-info">
                     <h4>Electric Sound Check</h4>
                     <p>Demo suara & fitur produk instrumen.</p>
                 </div>
             </div>
 
             <!-- Video 5 -->
-            <div class="video-card reveal delay-2">
-                <div class="video-wrapper">
+            <div class="media-card reveal-up delay-2">
+                <div class="wrapper-916">
                     <video id="vid5" loop muted playsinline poster="https://images.unsplash.com/photo-1470225620780-dba8ba36b745?w=600">
                         <source src="https://assets.mixkit.co/videos/preview/mixkit-dj-mixing-music-at-a-club-41557-large.mp4" type="video/mp4">
                     </video>
                 </div>
                 <div class="video-controls">
-                    <button class="btn-play" onclick="togglePlay('vid5', this)"><i class="fas fa-play"></i> Putar Video</button>
-                    <span style="font-size: 0.75rem; color: #888;">Video 5</span>
+                    <button class="btn-play" onclick="togglePlay('vid5', this)"><i class="fas fa-play"></i> Putar</button>
+                    <span style="font-size: 0.75rem; color: #64748b;">9:16 TikTok</span>
                 </div>
-                <div class="video-info">
+                <div class="media-info">
                     <h4>Event & Highlight Recap</h4>
                     <p>Editing kompilasi momen seru dan promosi acara.</p>
                 </div>
@@ -646,46 +703,56 @@
         </div>
     </section>
 
-    <!-- 8. HASIL FOTO PRODUK (5 FOTO) -->
+    <!-- 8. HASIL FOTO PRODUK (5 FOTO - UKURAN 9:16) -->
     <section id="products">
-        <h2 class="section-title reveal">Hasil Foto Produk (5 Foto)</h2>
-        <div class="photo-grid-5">
+        <h2 class="section-title reveal-up">Hasil Foto Produk (Format 9:16)</h2>
+        <div class="media-grid-916">
             
-            <div class="photo-card reveal delay-1">
-                <img src="https://images.unsplash.com/photo-1564186763535-ebb21ef5277f?w=600" alt="Produk 1">
-                <div class="photo-info">
+            <div class="media-card reveal-up delay-1">
+                <div class="wrapper-916">
+                    <img src="https://images.unsplash.com/photo-1564186763535-ebb21ef5277f?w=600" alt="Produk 1">
+                </div>
+                <div class="media-info">
                     <h4>Acoustic Guitar Detail</h4>
                     <p>Color grading dark vintage.</p>
                 </div>
             </div>
 
-            <div class="photo-card reveal delay-2">
-                <img src="https://images.unsplash.com/photo-1550291652-6ea9114a47b1?w=600" alt="Produk 2">
-                <div class="photo-info">
+            <div class="media-card reveal-up delay-2">
+                <div class="wrapper-916">
+                    <img src="https://images.unsplash.com/photo-1550291652-6ea9114a47b1?w=600" alt="Produk 2">
+                </div>
+                <div class="media-info">
                     <h4>Guitar Pickguard Custom</h4>
                     <p>Focus lighting & tekstur kayu.</p>
                 </div>
             </div>
 
-            <div class="photo-card reveal delay-3">
-                <img src="https://images.unsplash.com/photo-1525201548942-d8732f6617a0?w=600" alt="Produk 3">
-                <div class="photo-info">
+            <div class="media-card reveal-up delay-3">
+                <div class="wrapper-916">
+                    <img src="https://images.unsplash.com/photo-1525201548942-d8732f6617a0?w=600" alt="Produk 3">
+                </div>
+                <div class="media-info">
                     <h4>Electric Body Aesthetics</h4>
                     <p>Pengambilan sudut cinematic.</p>
                 </div>
             </div>
 
-            <div class="photo-card reveal delay-4">
-                <img src="https://images.unsplash.com/photo-1510915361894-db8b60106cb1?w=600" alt="Produk 4">
-                <div class="photo-info">
-                    <h4>Preamplifier & Tuning Hardware</h4>
+            <div class="media-card reveal-up delay-4">
+                <div class="wrapper-916">
+                    <img src="https://images.unsplash.com/photo-1510915361894-db8b60106cb1?w=600" alt="Produk 4">
+                </div>
+                <div class="media-info">
+                    <h4>Preamplifier & Hardware</h4>
                     <p>Foto produk komersial bersih.</p>
                 </div>
             </div>
 
-            <div class="photo-card reveal delay-1">
-                <img src="https://images.unsplash.com/photo-1511671782779-c97d3d27a1d4?w=600" alt="Produk 5">
-                <div class="photo-info">
+            <div class="media-card reveal-up delay-1">
+                <div class="wrapper-916">
+                    <img src="https://images.unsplash.com/photo-1511671782779-c97d3d27a1d4?w=600" alt="Produk 5">
+                </div>
+                <div class="media-info">
                     <h4>Full Setup & Accessories</h4>
                     <p>Layout katalog visual branding.</p>
                 </div>
@@ -694,17 +761,15 @@
         </div>
     </section>
 
-    <!-- 9. KONTAK SAYA (WHATSAPP, EMAIL & INSTAGRAM) -->
+    <!-- 9. KONTAK SAYA -->
     <section id="contact">
-        <div class="contact-box reveal">
+        <div class="contact-box reveal-up">
             <h2 class="section-title" style="margin-bottom: 15px;">Hubungi Saya</h2>
-            <p style="color: #aaa; margin-bottom: 20px;">Tertarik untuk kolaborasi pengelolaan akun atau pembuatan konten video/foto? Hubungi saya!</p>
+            <p style="color: #94a3b8; margin-bottom: 20px;">Tertarik untuk kolaborasi pengelolaan akun atau pembuatan konten video/foto? Hubungi saya!</p>
             <div class="btn-group">
                 <a href="https://wa.me/6281240084048" target="_blank" class="btn btn-primary"><i class="fab fa-whatsapp"></i> 081240084048</a>
                 <a href="mailto:dngagng@gmail.com" class="btn"><i class="fas fa-envelope"></i> dngagng@gmail.com</a>
-                
-                <!-- ISI LINK INSTAGRAM KAMU DI SINI (GANTI href BILA SUDAH ADA) -->
-                <a href="https://instagram.com/" target="_blank" class="btn"><i class="fab fa-instagram"></i> @username_ig_kamu</a>
+                <a href="https://instagram.com/ap_dng" target="_blank" class="btn"><i class="fab fa-instagram"></i> @ap_dng</a>
             </div>
         </div>
     </section>
@@ -713,9 +778,9 @@
         <p>&copy; 2026 Danang Ageng Priyambada. All rights reserved.</p>
     </footer>
 
-    <!-- JAVASCRIPT ANIMASI POP-UP & CONTROL VIDEO -->
+    <!-- JAVASCRIPT ANIMASI SCROLL ADVANCED & VIDEO CONTROL -->
     <script>
-        // 1. PRELOADER SAFETY
+        // 1. PRELOADER ANIMATION
         function hideLoader() {
             const preloader = document.getElementById('preloader');
             if (preloader && !preloader.classList.contains('hide-preloader')) {
@@ -723,24 +788,26 @@
             }
         }
         window.addEventListener('load', hideLoader);
-        setTimeout(hideLoader, 1200);
+        setTimeout(hideLoader, 1000);
 
-        // 2. SCROLL REVEAL ANIMATION (POP-UP SATU-PER-SATU)
-        function revealOnScroll() {
-            const reveals = document.querySelectorAll('.reveal');
-            const windowHeight = window.innerHeight;
-            
-            reveals.forEach(element => {
-                const elementTop = element.getBoundingClientRect().top;
-                const elementVisible = 100;
-                
-                if (elementTop < windowHeight - elementVisible) {
-                    element.classList.add('active');
+        // 2. ADVANCED INTERSECTION OBSERVER (ANIMASI SMOOTH ON SCROLL)
+        const observerOptions = {
+            threshold: 0.15,
+            rootMargin: "0px 0px -50px 0px"
+        };
+
+        const revealObserver = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('reveal-active');
                 }
             });
-        }
-        window.addEventListener('scroll', revealOnScroll);
-        window.addEventListener('load', revealOnScroll);
+        }, observerOptions);
+
+        document.addEventListener("DOMContentLoaded", () => {
+            const targets = document.querySelectorAll('.reveal-up, .reveal-slide-left, .reveal-slide-right');
+            targets.forEach(target => revealObserver.observe(target));
+        });
 
         // 3. KONTROL PUTAR & JEDA VIDEO
         function togglePlay(videoId, btn) {
@@ -748,14 +815,14 @@
             if (video.paused) {
                 document.querySelectorAll('video').forEach(v => v.pause());
                 document.querySelectorAll('.btn-play').forEach(b => {
-                    b.innerHTML = '<i class="fas fa-play"></i> Putar Video';
+                    b.innerHTML = '<i class="fas fa-play"></i> Putar';
                 });
 
                 video.play();
-                btn.innerHTML = '<i class="fas fa-pause"></i> Jeda Video';
+                btn.innerHTML = '<i class="fas fa-pause"></i> Jeda';
             } else {
                 video.pause();
-                btn.innerHTML = '<i class="fas fa-play"></i> Putar Video';
+                btn.innerHTML = '<i class="fas fa-play"></i> Putar';
             }
         }
     </script>
