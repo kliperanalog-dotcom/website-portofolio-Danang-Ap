@@ -1,11 +1,97 @@
 <!DOCTYPE html>
-<html>
+<html lang="id">
 <head>
-    <title>Website Portofolio Saya</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Danang Ageng | Portofolio</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+        body {
+            background-color: #0f0f0f;
+            color: #ffffff;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        header {
+            text-align: center;
+            margin-top: 30px;
+            margin-bottom: 40px;
+        }
+        h1 {
+            font-size: 2rem;
+            letter-spacing: 2px;
+            margin-bottom: 10px;
+            color: #ffffff;
+        }
+        p.subtitle {
+            color: #aaa;
+            font-size: 0.95rem;
+        }
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
+            width: 100%;
+            max-width: 1000px;
+        }
+        .card {
+            background-color: #1a1a1a;
+            border-radius: 12px;
+            overflow: hidden;
+            border: 1px solid #2a2a2a;
+        }
+        .card img {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+            display: block;
+        }
+        .card-info {
+            padding: 15px;
+        }
+        .card-info h3 {
+            font-size: 1.1rem;
+            margin-bottom: 5px;
+        }
+        .card-info p {
+            font-size: 0.85rem;
+            color: #888;
+        }
+    </style>
 </head>
 <body>
-    <h1>Halo! Website Saya Sudah Aktif</h1>
-    <p>Ini adalah halaman tes sederhana. Jika Anda melihat ini, berarti websitenya sudah tidak muter-muter lagi.</p>
-    <p>Setelah ini, kita bisa menambahkan foto dan videonya dengan benar.</p>
+
+    <header>
+        <h1>DANANG AGENG PRIYAMBADA</h1>
+        <p class="subtitle">Portofolio Karya & Konten Kreatif</p>
+    </header>
+
+    <div class="gallery">
+        <!-- Foto 1 -->
+        <div class="card">
+            <img src="https://via.placeholder.com/600x400/222/fff?text=Foto+1" alt="Karya 1">
+            <div class="card-info">
+                <h3>Judul Karya 1</h3>
+                <p>Deskripsi singkat karya kamu.</p>
+            </div>
+        </div>
+
+        <!-- Foto 2 -->
+        <div class="card">
+            <img src="https://via.placeholder.com/600x400/222/fff?text=Foto+2" alt="Karya 2">
+            <div class="card-info">
+                <h3>Judul Karya 2</h3>
+                <p>Deskripsi singkat karya kamu.</p>
+            </div>
+        </div>
+    </div>
+
 </body>
 </html>
