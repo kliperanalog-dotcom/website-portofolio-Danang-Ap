@@ -3,54 +3,56 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Danang Ageng Priyambada | Portofolio</title>
-    <!-- Font & FontAwesome Icon -->
+    <title>Danang Ageng Priyambada | Portofolio & Visual Specialist</title>
+    <!-- FontAwesome & Google Fonts -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    
     <style>
+        /* --- RESET & BASIC STYLES --- */
         * {
             box-sizing: border-box;
             margin: 0;
             padding: 0;
+            scroll-behavior: smooth; /* Bikin Scroll Jadi Halus/Animasi saat Menu Dipencet */
         }
 
         body {
-            background-color: #0b0b0b;
-            color: #ffffff;
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            background-color: #0d0d0d;
+            color: #e0e0e0;
+            font-family: 'Poppins', -apple-system, BlinkMacSystemFont, sans-serif;
+            line-height: 1.6;
             overflow-x: hidden;
         }
 
-        /* --- PRELOADER / LOADING SCREEN ANIMATION --- */
+        /* --- PRELOADER (AUTO-TIMEOUT SAFETY) --- */
         #preloader {
             position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100vh;
-            background-color: #0b0b0b;
+            top: 0; left: 0;
+            width: 100%; height: 100vh;
+            background-color: #0d0d0d;
             display: flex;
             flex-direction: column;
             justify-content: center;
             align-items: center;
-            z-index: 9999;
+            z-index: 99999;
             transition: opacity 0.5s ease, visibility 0.5s ease;
         }
 
         .spinner {
-            width: 50px;
-            height: 50px;
+            width: 50px; height: 50px;
             border: 3px solid rgba(255, 255, 255, 0.1);
             border-top-color: #f39c12;
             border-radius: 50%;
             animation: spin 1s linear infinite;
-            margin-bottom: 20px;
+            margin-bottom: 15px;
         }
 
         .loader-text {
-            font-size: 0.9rem;
+            font-size: 0.85rem;
             letter-spacing: 3px;
             text-transform: uppercase;
-            color: #e0e0e0;
+            color: #fff;
             font-weight: 600;
         }
 
@@ -64,200 +66,416 @@
             visibility: hidden;
         }
 
-        /* --- HERO SECTION --- */
-        header {
+        /* --- NAVBAR MENU (STICKY TOP) --- */
+        nav {
+            position: fixed;
+            top: 0; left: 0; width: 100%;
+            background: rgba(13, 13, 13, 0.9);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            padding: 15px 20px;
+            border-bottom: 1px solid #222;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .nav-logo {
+            font-weight: 700;
+            font-size: 1.1rem;
+            color: #fff;
+            letter-spacing: 1px;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 15px;
+            list-style: none;
+            overflow-x: auto;
+            white-space: nowrap;
+            padding-bottom: 5px;
+        }
+
+        .nav-links a {
+            color: #aaa;
+            text-decoration: none;
+            font-size: 0.85rem;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: #f39c12;
+        }
+
+        /* --- HERO SECTION (FOTO BACKGROUND & PROFIL) --- */
+        #hero {
+            min-height: 100vh;
+            padding-top: 100px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
             text-align: center;
-            padding: 60px 20px 40px;
-            animation: fadeIn 1s ease-in-out;
+            position: relative;
+            background: linear-gradient(180deg, rgba(13,13,13,0.6) 0%, rgba(13,13,13,1) 100%), 
+                        url('https://images.unsplash.com/photo-1511671782779-c97d3d27a1d4?w=1200') center/cover no-repeat;
+            padding-bottom: 50px;
         }
 
-        h1 {
+        .profile-img {
+            width: 140px;
+            height: 140px;
+            border-radius: 50%;
+            border: 3px solid #f39c12;
+            object-fit: cover;
+            margin-bottom: 20px;
+            box-shadow: 0 0 20px rgba(243, 156, 18, 0.3);
+        }
+
+        #hero h1 {
             font-size: 2.2rem;
-            letter-spacing: 2px;
-            margin-bottom: 10px;
-            text-transform: uppercase;
-            background: linear-gradient(45deg, #ffffff, #888888);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
+            color: #fff;
+            margin-bottom: 5px;
+            letter-spacing: 1px;
         }
 
-        p.subtitle {
+        #hero p.tagline {
             color: #f39c12;
             font-size: 1rem;
-            letter-spacing: 1px;
             margin-bottom: 20px;
+            font-weight: 300;
         }
 
-        /* --- TOMBOL KONTAK & SOSMED --- */
-        .contact-bar {
-            display: flex;
-            justify-content: center;
-            gap: 15px;
-            flex-wrap: wrap;
-            margin-top: 20px;
-        }
-
-        .btn-contact {
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-            padding: 10px 20px;
-            background: #1a1a1a;
-            color: #fff;
-            text-decoration: none;
-            border-radius: 25px;
-            border: 1px solid #333;
-            font-size: 0.85rem;
-            transition: all 0.3s ease;
-        }
-
-        .btn-contact:hover {
-            border-color: #f39c12;
-            color: #f39c12;
-            transform: translateY(-3px);
-        }
-
-        /* --- GALERI PORTOFOLIO --- */
-        .container {
+        /* --- COMMON SECTION LAYOUT --- */
+        section {
+            padding: 70px 20px;
             max-width: 1100px;
             margin: 0 auto;
-            padding: 20px;
         }
 
-        .gallery {
+        .section-title {
+            text-align: center;
+            font-size: 1.6rem;
+            color: #fff;
+            margin-bottom: 40px;
+            position: relative;
+        }
+
+        .section-title::after {
+            content: '';
+            width: 50px;
+            height: 3px;
+            background: #f39c12;
+            display: block;
+            margin: 10px auto 0;
+            border-radius: 2px;
+        }
+
+        /* --- TENTANG SAYA --- */
+        .about-text {
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto;
+            color: #bbb;
+            font-size: 0.95rem;
+            line-height: 1.8;
+        }
+
+        /* --- SOFTWARE & SKILLS --- */
+        .skills-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 25px;
+            grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+            gap: 20px;
+            text-align: center;
         }
 
-        .card {
-            background-color: #141414;
-            border-radius: 12px;
-            overflow: hidden;
-            border: 1px solid #222;
-            transition: transform 0.3s ease, border-color 0.3s ease;
+        .skill-card {
+            background: #181818;
+            padding: 20px;
+            border-radius: 10px;
+            border: 1px solid #252525;
+            transition: transform 0.3s;
         }
 
-        .card:hover {
+        .skill-card:hover {
             transform: translateY(-5px);
             border-color: #f39c12;
         }
 
-        .card img {
-            width: 100%;
-            height: 220px;
-            object-fit: cover;
-            display: block;
+        .skill-card i {
+            font-size: 2rem;
+            color: #f39c12;
+            margin-bottom: 10px;
         }
 
-        .card-info {
+        /* --- AKUN DIKELOLA & ENGAGEMENT --- */
+        .analytics-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+        }
+
+        .stat-card {
+            background: linear-gradient(145deg, #181818, #111111);
+            padding: 25px;
+            border-radius: 12px;
+            border: 1px solid #252525;
+            text-align: center;
+        }
+
+        .stat-card h3 {
+            color: #fff;
+            font-size: 1.2rem;
+            margin-bottom: 5px;
+        }
+
+        .stat-card .account-handle {
+            color: #888;
+            font-size: 0.85rem;
+            margin-bottom: 15px;
+        }
+
+        .stat-card .number {
+            font-size: 2rem;
+            font-weight: 700;
+            color: #f39c12;
+        }
+
+        .stat-card .label {
+            font-size: 0.8rem;
+            color: #aaa;
+            text-transform: uppercase;
+        }
+
+        /* --- KARYA / PORTOFOLIO --- */
+        .portfolio-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+        }
+
+        .portfolio-card {
+            background: #181818;
+            border-radius: 12px;
+            overflow: hidden;
+            border: 1px solid #252525;
+        }
+
+        .portfolio-card img {
+            width: 100%; height: 220px;
+            object-fit: cover;
+        }
+
+        .portfolio-info {
             padding: 20px;
         }
 
-        .card-info h3 {
-            font-size: 1.1rem;
-            margin-bottom: 8px;
+        .portfolio-info h4 {
             color: #fff;
+            margin-bottom: 8px;
         }
 
-        .card-info p {
+        .portfolio-info p {
+            color: #888;
             font-size: 0.85rem;
-            color: #aaa;
-            line-height: 1.5;
         }
 
-        /* --- FOOTER --- */
+        /* --- KONTAK --- */
+        .contact-box {
+            text-align: center;
+            background: #141414;
+            padding: 40px 20px;
+            border-radius: 15px;
+            border: 1px solid #222;
+        }
+
+        .btn-group {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            flex-wrap: wrap;
+            margin-top: 25px;
+        }
+
+        .btn {
+            padding: 12px 25px;
+            border-radius: 30px;
+            text-decoration: none;
+            color: #fff;
+            background: #222;
+            border: 1px solid #333;
+            font-size: 0.9rem;
+            transition: all 0.3s;
+        }
+
+        .btn-primary {
+            background: #f39c12;
+            color: #000;
+            font-weight: 600;
+            border: none;
+        }
+
+        .btn:hover {
+            transform: translateY(-3px);
+        }
+
         footer {
             text-align: center;
-            padding: 40px 20px;
+            padding: 30px;
             color: #555;
             font-size: 0.8rem;
-            border-top: 1px solid #1a1a1a;
-            margin-top: 50px;
-        }
-
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(20px); }
-            to { opacity: 1; transform: translateY(0); }
+            border-top: 1px solid #181818;
         }
     </style>
 </head>
 <body>
 
-    <!-- PRELOADER ANIMATION (DIJAMIN TIDAK MUTEN-MUTER) -->
+    <!-- 1. PRELOADER ANIMATION (ANTI-LOCK) -->
     <div id="preloader">
         <div class="spinner"></div>
         <div class="loader-text">DANANG AGENG PRIYAMBADA</div>
     </div>
 
-    <!-- MAIN CONTENT -->
-    <header>
+    <!-- 2. NAVBAR MENU DENGAN SMOOTH SCROLL -->
+    <nav>
+        <div class="nav-logo">DANANG A.P</div>
+        <ul class="nav-links">
+            <li><a href="#hero">Beranda</a></li>
+            <li><a href="#about">Tentang</a></li>
+            <li><a href="#software">Software</a></li>
+            <li><a href="#management">Kelola Akun</a></li>
+            <li><a href="#portfolio">Karya</a></li>
+            <li><a href="#contact">Kontak</a></li>
+        </ul>
+    </nav>
+
+    <!-- 3. HERO SECTION (BAGIAN ATAS + FOTO PROFIL) -->
+    <section id="hero">
+        <!-- Ganti src ini dengan link foto profil kamu -->
+        <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=500" alt="Foto Danang Ageng" class="profile-img">
         <h1>DANANG AGENG PRIYAMBADA</h1>
-        <p class="subtitle">Content Creator & Visual Specialist</p>
-
-        <!-- TOMBOL KONTAK LENGKAP -->
-        <div class="contact-bar">
-            <a href="https://wa.me/6281234567890" target="_blank" class="btn-contact">
-                <i class="fab fa-whatsapp"></i> WhatsApp
-            </a>
-            <a href="https://instagram.com/" target="_blank" class="btn-contact">
-                <i class="fab fa-instagram"></i> Instagram
-            </a>
-            <a href="mailto:email@domain.com" class="btn-contact">
-                <i class="fas fa-envelope"></i> Email
-            </a>
+        <p class="tagline">Digital Content Creator & Visual Specialist</p>
+        <div class="btn-group">
+            <a href="#portfolio" class="btn btn-primary">Lihat Karya</a>
+            <a href="#contact" class="btn">Hubungi Saya</a>
         </div>
-    </header>
+    </section>
 
-    <div class="container">
-        <div class="gallery">
-            <!-- Kartu Portofolio 1 -->
-            <div class="card">
-                <img src="https://images.unsplash.com/photo-1511671782779-c97d3d27a1d4?w=600&auto=format&fit=crop" alt="Karya 1">
-                <div class="card-info">
-                    <h3>Project Showcase 01</h3>
-                    <p>Deskripsi karya visual atau konten yang sudah dibuat. Bisa diisi informasi detail proyek.</p>
-                </div>
+    <!-- 4. TENTANG SAYA -->
+    <section id="about">
+        <h2 class="section-title">Tentang Saya</h2>
+        <p class="about-text">
+            Halo! Saya Danang Ageng Priyambada. Saya berfokus pada pembuatan konten kreatif visual, pengeditan video/foto, branding visual, serta manajemen media sosial. Beralaman dalam membangun identitas visual dan mengoptimalkan keterlibatan *engagement* audiens di berbagai platform digital.
+        </p>
+    </section>
+
+    <!-- 5. KEAHLIAN SOFTWARE -->
+    <section id="software">
+        <h2 class="section-title">Keahlian Software</h2>
+        <div class="skills-grid">
+            <div class="skill-card">
+                <i class="fas fa-video"></i>
+                <h4>CapCut / Premiere</h4>
             </div>
-
-            <!-- Kartu Portofolio 2 -->
-            <div class="card">
-                <img src="https://images.unsplash.com/photo-1461784121038-f088ca1e7714?w=600&auto=format&fit=crop" alt="Karya 2">
-                <div class="card-info">
-                    <h3>Project Showcase 02</h3>
-                    <p>Deskripsi karya visual atau konten yang sudah dibuat. Bisa diisi informasi detail proyek.</p>
-                </div>
+            <div class="skill-card">
+                <i class="fas fa-image"></i>
+                <h4>Photoshop</h4>
             </div>
-
-            <!-- Kartu Portofolio 3 -->
-            <div class="card">
-                <img src="https://images.unsplash.com/photo-1598488035139-bdbb2231ce04?w=600&auto=format&fit=crop" alt="Karya 3">
-                <div class="card-info">
-                    <h3>Project Showcase 03</h3>
-                    <p>Deskripsi karya visual atau konten yang sudah dibuat. Bisa diisi informasi detail proyek.</p>
-                </div>
+            <div class="skill-card">
+                <i class="fas fa-paint-brush"></i>
+                <h4>Canva / Lightroom</h4>
+            </div>
+            <div class="skill-card">
+                <i class="fab fa-tiktok"></i>
+                <h4>TikTok Studio</h4>
             </div>
         </div>
-    </div>
+    </section>
+
+    <!-- 6. AKUN DIKELOLA & HASIL ENGAGEMENT -->
+    <section id="management">
+        <h2 class="section-title">Manajemen Akun & Engagement</h2>
+        <div class="analytics-grid">
+            <div class="stat-card">
+                <h3>Cliper Hub</h3>
+                <p class="account-handle">@cliperhub</p>
+                <div class="number">100K+</div>
+                <div class="label">Total Views / Month</div>
+            </div>
+            <div class="stat-card">
+                <h3>El Brader Guitar Shop</h3>
+                <p class="account-handle">@elbraderguitar</p>
+                <div class="number">15.5%</div>
+                <div class="label">Avg. Engagement Rate</div>
+            </div>
+            <div class="stat-card">
+                <h3>Personal Brand</h3>
+                <p class="account-handle">@danangageng</p>
+                <div class="number">50K+</div>
+                <div class="label">Total Reaches</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 7. KARYA SAYA -->
+    <section id="portfolio">
+        <h2 class="section-title">Karya Portofolio</h2>
+        <div class="portfolio-grid">
+            <div class="portfolio-card">
+                <img src="https://images.unsplash.com/photo-1511671782779-c97d3d27a1d4?w=600" alt="Karya 1">
+                <div class="portfolio-info">
+                    <h4>Visual Branding Project</h4>
+                    <p>Desain visual feed dan identitas estetika gelap / vintage noise.</p>
+                </div>
+            </div>
+            <div class="portfolio-card">
+                <img src="https://images.unsplash.com/photo-1461784121038-f088ca1e7714?w=600" alt="Karya 2">
+                <div class="portfolio-info">
+                    <h4>Editing Video TikTok</h4>
+                    <p>Editing video pendek promosi produk dengan tempo cepat dan eye-catching.</p>
+                </div>
+            </div>
+            <div class="portfolio-card">
+                <img src="https://images.unsplash.com/photo-1598488035139-bdbb2231ce04?w=600" alt="Karya 3">
+                <div class="portfolio-info">
+                    <h4>Audio & Podcasting Visual</h4>
+                    <p>Desain promosi audio visualizer dan pembuatan logo.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 8. KONTAK SAYA -->
+    <section id="contact">
+        <div class="contact-box">
+            <h2 class="section-title" style="margin-bottom: 15px;">Hubungi Saya</h2>
+            <p style="color: #aaa; margin-bottom: 20px;">Tertarik untuk bekerja sama atau ada pertanyaan? Kontak saya langsung!</p>
+            <div class="btn-group">
+                <a href="https://wa.me/6281234567890" target="_blank" class="btn btn-primary"><i class="fab fa-whatsapp"></i> WhatsApp</a>
+                <a href="https://instagram.com" target="_blank" class="btn"><i class="fab fa-instagram"></i> Instagram</a>
+                <a href="mailto:email@domain.com" class="btn"><i class="fas fa-envelope"></i> Email</a>
+            </div>
+        </div>
+    </section>
 
     <footer>
         <p>&copy; 2026 Danang Ageng Priyambada. All rights reserved.</p>
     </footer>
 
-    <!-- SCRIPT MATIKAN PRELOADER AMAN & OTOMATIS -->
+    <!-- JAVASCRIPT AMAN UNTUK ANIMASI & PRELOADER -->
     <script>
-        function removePreloader() {
+        function hideLoader() {
             const preloader = document.getElementById('preloader');
             if (preloader && !preloader.classList.contains('hide-preloader')) {
                 preloader.classList.add('hide-preloader');
             }
         }
 
-        // Matikan preloader saat halaman selesai dimuat
-        window.addEventListener('load', removePreloader);
+        // Matikan preloader saat loading selesai
+        window.addEventListener('load', hideLoader);
 
-        // BATAS SAFETY TIMEOUT: Maksimal 1.5 detik loading langsung hilang otomatis!
-        setTimeout(removePreloader, 1500);
+        // KUNCI KEAMANAN: Maksimal 1.2 detik preloader dipaksa hilang agar tidak pernah stuck!
+        setTimeout(hideLoader, 1200);
     </script>
 </body>
 </html>
