@@ -4,9 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Danang Ageng Priyambada | Admin, Content Creator & Editor</title>
-    <!-- FontAwesome & Google Fonts -->
+    <!-- FontAwesome & Helvetica / Sans-Serif Clean Stack -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;600;700;800&display=swap" rel="stylesheet">
     
     <style>
         * {
@@ -19,9 +18,10 @@
         body {
             background-color: #070708;
             color: #e2e8f0;
-            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
             line-height: 1.6;
             overflow-x: hidden;
+            -webkit-font-smoothing: antialiased;
         }
 
         /* Custom Scrollbar */
@@ -51,7 +51,7 @@
         }
 
         .spinner {
-            width: 60px; height: 60px;
+            width: 50px; height: 50px;
             border: 3px solid rgba(243, 156, 18, 0.1);
             border-top-color: #f39c12;
             border-radius: 50%;
@@ -81,7 +81,7 @@
         nav {
             position: fixed;
             top: 0; left: 0; width: 100%;
-            background: rgba(7, 7, 8, 0.75);
+            background: rgba(7, 7, 8, 0.85);
             backdrop-filter: blur(16px);
             -webkit-backdrop-filter: blur(16px);
             z-index: 1000;
@@ -93,13 +93,11 @@
         }
 
         .nav-logo {
-            font-weight: 800;
-            font-size: 1.2rem;
+            font-weight: 700;
+            font-size: 1.15rem;
             color: #fff;
             letter-spacing: 1.5px;
-            background: linear-gradient(135deg, #fff 0%, #f39c12 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
+            text-transform: uppercase;
         }
 
         .nav-links {
@@ -120,10 +118,9 @@
 
         .nav-links a:hover {
             color: #f39c12;
-            text-shadow: 0 0 10px rgba(243, 156, 18, 0.5);
         }
 
-        /* --- HERO SECTION --- */
+        /* --- HERO SECTION (BACKGROUND TIMELINE EDITING) --- */
         #hero {
             min-height: 100vh;
             padding-top: 100px;
@@ -133,7 +130,8 @@
             align-items: center;
             text-align: center;
             position: relative;
-            background: radial-gradient(circle at center, rgba(243, 156, 18, 0.12) 0%, rgba(7,7,8,1) 70%);
+            background: linear-gradient(180deg, rgba(7, 7, 8, 0.75) 0%, rgba(7, 7, 8, 0.95) 80%, #070708 100%), 
+                        url('https://images.unsplash.com/photo-1574717024653-61fd2cf4d44d?w=1600') center/cover no-repeat fixed;
             padding-bottom: 60px;
         }
 
@@ -145,7 +143,7 @@
         .profile-img-container::before {
             content: '';
             position: absolute;
-            inset: -5px;
+            inset: -4px;
             background: linear-gradient(45deg, #f39c12, #e67e22, transparent);
             border-radius: 50%;
             filter: blur(10px);
@@ -154,7 +152,7 @@
 
         @keyframes pulseGlow {
             0% { opacity: 0.4; transform: scale(0.98); }
-            100% { opacity: 0.9; transform: scale(1.03); }
+            100% { opacity: 0.8; transform: scale(1.03); }
         }
 
         .profile-img {
@@ -167,41 +165,42 @@
         }
 
         #hero h1 {
-            font-size: 2.5rem;
-            font-weight: 800;
+            font-size: 2.4rem;
+            font-weight: 700;
             color: #fff;
             margin-bottom: 8px;
             letter-spacing: -0.5px;
+            text-transform: uppercase;
         }
 
         #hero p.tagline {
             color: #f39c12;
-            font-size: 1rem;
+            font-size: 0.95rem;
             margin-bottom: 25px;
             font-weight: 600;
-            letter-spacing: 1px;
+            letter-spacing: 2px;
             text-transform: uppercase;
         }
 
-        /* --- EFEK SCROLL & TRANSISI SLIDE KEREN (SMOOTH REVEAL) --- */
+        /* --- ANIMASI SCROLL SMOOTH --- */
         .reveal-up {
             opacity: 0;
-            transform: translateY(60px) scale(0.96);
-            transition: transform 0.9s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.9s cubic-bezier(0.16, 1, 0.3, 1);
+            transform: translateY(50px) scale(0.97);
+            transition: transform 0.8s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1);
             will-change: transform, opacity;
         }
 
         .reveal-slide-left {
             opacity: 0;
-            transform: translateX(-80px);
-            transition: transform 0.9s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.9s cubic-bezier(0.16, 1, 0.3, 1);
+            transform: translateX(-60px);
+            transition: transform 0.8s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1);
             will-change: transform, opacity;
         }
 
         .reveal-slide-right {
             opacity: 0;
-            transform: translateX(80px);
-            transition: transform 0.9s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.9s cubic-bezier(0.16, 1, 0.3, 1);
+            transform: translateX(60px);
+            transition: transform 0.8s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1);
             will-change: transform, opacity;
         }
 
@@ -210,7 +209,6 @@
             transform: translate(0) scale(1);
         }
 
-        /* Staggered Delay */
         .delay-1 { transition-delay: 0.1s; }
         .delay-2 { transition-delay: 0.2s; }
         .delay-3 { transition-delay: 0.3s; }
@@ -218,29 +216,29 @@
 
         /* --- COMMON SECTION STYLES --- */
         section {
-            padding: 100px 5%;
+            padding: 90px 5%;
             max-width: 1200px;
             margin: 0 auto;
         }
 
         .section-title {
             text-align: center;
-            font-size: 1.8rem;
-            font-weight: 800;
+            font-size: 1.7rem;
+            font-weight: 700;
             color: #fff;
-            margin-bottom: 50px;
+            margin-bottom: 45px;
             position: relative;
+            letter-spacing: -0.5px;
         }
 
         .section-title::after {
             content: '';
-            width: 60px;
-            height: 4px;
+            width: 50px;
+            height: 3px;
             background: linear-gradient(90deg, #f39c12, #e67e22);
             display: block;
-            margin: 12px auto 0;
+            margin: 10px auto 0;
             border-radius: 2px;
-            box-shadow: 0 0 10px rgba(243, 156, 18, 0.5);
         }
 
         .about-text {
@@ -248,8 +246,9 @@
             max-width: 850px;
             margin: 0 auto;
             color: #94a3b8;
-            font-size: 1.05rem;
-            line-height: 1.9;
+            font-size: 1rem;
+            line-height: 1.8;
+            font-weight: 400;
         }
 
         /* --- SOFTWARE SKILLS --- */
@@ -262,29 +261,30 @@
         .skill-card {
             background: rgba(255, 255, 255, 0.02);
             padding: 30px 20px;
-            border-radius: 16px;
-            border: 1px solid rgba(255, 255, 255, 0.05);
+            border-radius: 14px;
+            border: 1px solid rgba(255, 255, 255, 0.06);
             text-align: center;
             backdrop-filter: blur(10px);
             transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
         }
 
         .skill-card:hover {
-            transform: translateY(-10px) scale(1.02);
+            transform: translateY(-8px);
             border-color: rgba(243, 156, 18, 0.4);
-            box-shadow: 0 20px 30px rgba(0,0,0,0.5), 0 0 15px rgba(243, 156, 18, 0.15);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.5);
         }
 
         .skill-card i {
-            font-size: 2.5rem;
+            font-size: 2.3rem;
             color: #f39c12;
             margin-bottom: 15px;
         }
 
         .skill-card h4 {
             color: #fff;
-            font-size: 1.1rem;
+            font-size: 1.05rem;
             margin-bottom: 8px;
+            font-weight: 600;
         }
 
         .skill-card p {
@@ -296,23 +296,23 @@
         .analytics-box {
             background: linear-gradient(135deg, rgba(255,255,255,0.03) 0%, rgba(243,156,18,0.05) 100%);
             padding: 40px;
-            border-radius: 20px;
+            border-radius: 16px;
             border: 1px solid rgba(243, 156, 18, 0.2);
             text-align: center;
             max-width: 750px;
             margin: 0 auto 50px;
-            box-shadow: 0 15px 35px rgba(0,0,0,0.4);
         }
 
         .analytics-box h3 {
             color: #fff;
-            font-size: 1.5rem;
+            font-size: 1.4rem;
             margin-bottom: 5px;
+            font-weight: 700;
         }
 
         .analytics-box .account-handle {
             color: #f39c12;
-            font-size: 0.95rem;
+            font-size: 0.9rem;
             margin-bottom: 25px;
             font-weight: 600;
         }
@@ -325,10 +325,9 @@
         }
 
         .stat-item .number {
-            font-size: 2.5rem;
-            font-weight: 800;
+            font-size: 2.3rem;
+            font-weight: 700;
             color: #fff;
-            text-shadow: 0 0 15px rgba(255,255,255,0.2);
         }
 
         .stat-item .label {
@@ -347,7 +346,7 @@
 
         .media-card {
             background: #0f0f12;
-            border-radius: 16px;
+            border-radius: 14px;
             overflow: hidden;
             border: 1px solid rgba(255, 255, 255, 0.08);
             transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
@@ -364,7 +363,7 @@
         .wrapper-916 {
             position: relative;
             width: 100%;
-            aspect-ratio: 9/16; /* Format Vertikal TikTok / Reels / Stories */
+            aspect-ratio: 9/16;
             background: #000;
             overflow: hidden;
         }
@@ -402,7 +401,6 @@
 
         .btn-play:hover {
             transform: scale(1.05);
-            box-shadow: 0 0 10px rgba(243, 156, 18, 0.5);
         }
 
         .media-info {
@@ -413,6 +411,7 @@
             color: #fff;
             font-size: 0.95rem;
             margin-bottom: 5px;
+            font-weight: 600;
         }
 
         .media-info p {
@@ -429,7 +428,7 @@
 
         .photo-card-analytic {
             background: #0f0f12;
-            border-radius: 16px;
+            border-radius: 14px;
             overflow: hidden;
             border: 1px solid rgba(255, 255, 255, 0.08);
             transition: all 0.4s ease;
@@ -451,7 +450,7 @@
             text-align: center;
             background: rgba(255, 255, 255, 0.02);
             padding: 50px 20px;
-            border-radius: 20px;
+            border-radius: 16px;
             border: 1px solid rgba(255, 255, 255, 0.05);
             backdrop-filter: blur(10px);
         }
@@ -523,7 +522,7 @@
         </ul>
     </nav>
 
-    <!-- 3. HERO SECTION -->
+    <!-- 3. HERO SECTION (BACKGROUND TIMELINE EDITING) -->
     <section id="hero">
         <div class="profile-img-container reveal-up">
             <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=500" alt="Foto Profil Danang Ageng" class="profile-img">
@@ -590,7 +589,7 @@
             </div>
         </div>
 
-        <h3 style="text-align: center; color: #94a3b8; margin-bottom: 25px; font-size: 1.1rem;" class="reveal-up">Bukti Perkembangan Akun (2 Foto)</h3>
+        <h3 style="text-align: center; color: #94a3b8; margin-bottom: 25px; font-size: 1.05rem;" class="reveal-up">Bukti Perkembangan Akun (2 Foto)</h3>
         
         <div class="photo-grid-2">
             <div class="photo-card-analytic reveal-slide-left delay-1">
@@ -778,7 +777,7 @@
         <p>&copy; 2026 Danang Ageng Priyambada. All rights reserved.</p>
     </footer>
 
-    <!-- JAVASCRIPT ANIMASI SCROLL ADVANCED & VIDEO CONTROL -->
+    <!-- JAVASCRIPT ANIMASI SCROLL & VIDEO CONTROL -->
     <script>
         // 1. PRELOADER ANIMATION
         function hideLoader() {
@@ -790,7 +789,7 @@
         window.addEventListener('load', hideLoader);
         setTimeout(hideLoader, 1000);
 
-        // 2. ADVANCED INTERSECTION OBSERVER (ANIMASI SMOOTH ON SCROLL)
+        // 2. INTERSECTION OBSERVER FOR SMOOTH SCROLL REVEAL
         const observerOptions = {
             threshold: 0.15,
             rootMargin: "0px 0px -50px 0px"
