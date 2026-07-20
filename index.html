@@ -120,7 +120,7 @@
             color: #f39c12;
         }
 
-        /* --- HERO SECTION (BACKGROUND TIMELINE EDITING DENGAN LOW OPACITY OVERLAY) --- */
+        /* --- HERO SECTION (CSS PATTERN TIMELINE GRID + RADIAL LIGHTING) --- */
         #hero {
             min-height: 100vh;
             padding-top: 100px;
@@ -130,10 +130,38 @@
             align-items: center;
             text-align: center;
             position: relative;
-            /* Overlay ditipiskan (rgba 0.35 s/d 0.75) agar gambar timeline dibelakangnya terlihat terang dan jelas */
-            background: linear-gradient(180deg, rgba(7, 7, 8, 0.35) 0%, rgba(7, 7, 8, 0.75) 85%, #070708 100%), 
-                        url('https://images.unsplash.com/photo-1535016120720-40c646be5580?auto=format&fit=crop&w=1920&q=80') center/cover no-repeat fixed;
+            /* Kombinasi Radial Light & Pattern Visual Track Timeline (Non-External, Anti-Block) */
+            background-color: #070708;
+            background-image: 
+                radial-gradient(circle at 50% 30%, rgba(243, 156, 18, 0.12) 0%, transparent 60%),
+                linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+            background-size: 100% 100%, 40px 40px, 40px 40px;
+            background-position: center;
             padding-bottom: 60px;
+        }
+
+        /* Efek Ornamen Visual Playhead & Timeline Tracks di Latar Belakang */
+        #hero::before {
+            content: '';
+            position: absolute;
+            top: 20%;
+            left: 5%;
+            right: 5%;
+            height: 2px;
+            background: linear-gradient(90deg, transparent, rgba(243, 156, 18, 0.3), rgba(230, 126, 34, 0.5), transparent);
+            pointer-events: none;
+        }
+
+        #hero::after {
+            content: '';
+            position: absolute;
+            bottom: 15%;
+            left: 10%;
+            right: 10%;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.08), transparent);
+            pointer-events: none;
         }
 
         .profile-img-container {
@@ -172,7 +200,6 @@
             margin-bottom: 8px;
             letter-spacing: -0.5px;
             text-transform: uppercase;
-            text-shadow: 0 4px 12px rgba(0,0,0,0.8);
         }
 
         #hero p.tagline {
@@ -182,7 +209,6 @@
             font-weight: 600;
             letter-spacing: 2px;
             text-transform: uppercase;
-            text-shadow: 0 2px 8px rgba(0,0,0,0.8);
         }
 
         /* --- ANIMASI SCROLL SMOOTH --- */
@@ -525,7 +551,7 @@
         </ul>
     </nav>
 
-    <!-- 3. HERO SECTION (BACKGROUND TIMELINE EDITING CLEAR & LOW OPACITY) -->
+    <!-- 3. HERO SECTION (BACKGROUND EDITING GRID & AMBIENT GLOW) -->
     <section id="hero">
         <div class="profile-img-container reveal-up">
             <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=500" alt="Foto Profil Danang Ageng" class="profile-img">
