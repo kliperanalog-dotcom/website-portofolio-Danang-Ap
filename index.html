@@ -156,11 +156,10 @@
             transform: translateY(0) scale(1);
         }
 
-        /* Staggered Delay untuk Efek Muncul Satu-per-Satu */
         .delay-1 { transition-delay: 0.1s; }
-        .delay-2 { transition-delay: 0.25s; }
-        .delay-3 { transition-delay: 0.4s; }
-        .delay-4 { transition-delay: 0.55s; }
+        .delay-2 { transition-delay: 0.2s; }
+        .delay-3 { transition-delay: 0.3s; }
+        .delay-4 { transition-delay: 0.4s; }
 
         /* --- COMMON SECTION STYLES --- */
         section {
@@ -236,49 +235,100 @@
         }
 
         /* --- MANAGEMENT & STATS --- */
-        .analytics-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 20px;
-        }
-
-        .stat-card {
+        .analytics-box {
             background: linear-gradient(145deg, #161616, #101010);
-            padding: 25px;
-            border-radius: 12px;
+            padding: 30px;
+            border-radius: 15px;
             border: 1px solid #222;
             text-align: center;
+            max-width: 700px;
+            margin: 0 auto 40px;
         }
 
-        .stat-card h3 {
+        .analytics-box h3 {
             color: #fff;
-            font-size: 1.2rem;
+            font-size: 1.4rem;
             margin-bottom: 5px;
         }
 
-        .stat-card .account-handle {
+        .analytics-box .account-handle {
             color: #f39c12;
-            font-size: 0.85rem;
-            margin-bottom: 15px;
+            font-size: 0.9rem;
+            margin-bottom: 20px;
         }
 
-        .stat-card .number {
+        .stats-group {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+
+        .stat-item .number {
             font-size: 2.2rem;
             font-weight: 700;
             color: #fff;
         }
 
-        .stat-card .label {
+        .stat-item .label {
             font-size: 0.8rem;
             color: #888;
             text-transform: uppercase;
         }
 
-        /* --- VIDEO PORTFOLIO SECTION --- */
-        .video-grid {
+        /* --- GALLERY FOTO PERKEMBANGAN & PRODUK --- */
+        .photo-grid-2 {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 30px;
+            gap: 20px;
+        }
+
+        .photo-grid-5 {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+        }
+
+        .photo-card {
+            background: #141414;
+            border-radius: 12px;
+            overflow: hidden;
+            border: 1px solid #222;
+            transition: transform 0.3s;
+        }
+
+        .photo-card:hover {
+            transform: translateY(-5px);
+            border-color: #f39c12;
+        }
+
+        .photo-card img {
+            width: 100%;
+            height: 220px;
+            object-fit: cover;
+            display: block;
+        }
+
+        .photo-info {
+            padding: 15px;
+        }
+
+        .photo-info h4 {
+            color: #fff;
+            font-size: 0.95rem;
+            margin-bottom: 5px;
+        }
+
+        .photo-info p {
+            color: #888;
+            font-size: 0.8rem;
+        }
+
+        /* --- VIDEO PORTFOLIO SECTION (5 VIDEOS) --- */
+        .video-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 25px;
         }
 
         .video-card {
@@ -294,8 +344,8 @@
             position: relative;
             width: 100%;
             background: #000;
-            aspect-ratio: 9/16; /* Format Vertikal TikTok/Reels */
-            max-height: 420px;
+            aspect-ratio: 9/16;
+            max-height: 380px;
             overflow: hidden;
         }
 
@@ -306,7 +356,7 @@
         }
 
         .video-controls {
-            padding: 15px;
+            padding: 12px;
             background: #181818;
             display: flex;
             justify-content: space-between;
@@ -318,9 +368,9 @@
             background: #f39c12;
             color: #000;
             border: none;
-            padding: 8px 16px;
+            padding: 6px 14px;
             border-radius: 20px;
-            font-size: 0.85rem;
+            font-size: 0.8rem;
             font-weight: 600;
             cursor: pointer;
             display: inline-flex;
@@ -334,18 +384,18 @@
         }
 
         .video-info {
-            padding: 15px 20px 20px;
+            padding: 15px;
         }
 
         .video-info h4 {
             color: #fff;
-            font-size: 1.05rem;
+            font-size: 0.95rem;
             margin-bottom: 5px;
         }
 
         .video-info p {
             color: #888;
-            font-size: 0.85rem;
+            font-size: 0.8rem;
         }
 
         /* --- KONTAK & BUTTONS --- */
@@ -412,7 +462,8 @@
             <li><a href="#about">Tentang</a></li>
             <li><a href="#software">Software</a></li>
             <li><a href="#management">Kelola Akun</a></li>
-            <li><a href="#portfolio">Hasil Karya</a></li>
+            <li><a href="#videos">Karya Video</a></li>
+            <li><a href="#products">Hasil Produk</a></li>
             <li><a href="#contact">Kontak</a></li>
         </ul>
     </nav>
@@ -423,7 +474,7 @@
         <h1 class="reveal delay-1">DANANG AGENG PRIYAMBADA</h1>
         <p class="tagline reveal delay-2">Admin, Content Creator & Video Editor</p>
         <div class="btn-group reveal delay-3">
-            <a href="#portfolio" class="btn btn-primary">Lihat Karya Video</a>
+            <a href="#videos" class="btn btn-primary">Lihat Karya Video</a>
             <a href="#contact" class="btn">Hubungi Saya</a>
         </div>
     </section>
@@ -432,7 +483,7 @@
     <section id="about">
         <h2 class="section-title reveal">Tentang Saya</h2>
         <p class="about-text reveal delay-1">
-            Halo! Saya Danang Ageng Priyambada. Berpengalaman sebagai **Admin, Content Creator, dan Editor Video/Foto**. Saya mengombinasikan strategi manajemen konten, estestika visual gelap & cinematic, serta eksekusi pengeditan presisi tinggi menggunakan tools modern berbasis AI dan aplikasi editing terkini.
+            Halo! Saya Danang Ageng Priyambada. Berpengalaman sebagai **Admin, Content Creator, dan Editor Video/Foto**. Saya mengombinasikan strategi manajemen konten, estetika visual gelap & cinematic, serta eksekusi pengeditan presisi tinggi menggunakan tools modern berbasis AI dan aplikasi editing terkini.
         </p>
     </section>
 
@@ -443,7 +494,7 @@
             <div class="skill-card reveal delay-1">
                 <i class="fas fa-scissors"></i>
                 <h4>CapCut</h4>
-                <p>Editing video pendek, efek transisi, tempo & pacing cepat untuk TikTok/Reels.</p>
+                <p>Editing video pendek, transisi presisi, tempo & pacing cepat untuk TikTok/Reels.</p>
             </div>
             <div class="skill-card reveal delay-2">
                 <i class="fas fa-sliders-h"></i>
@@ -453,98 +504,207 @@
             <div class="skill-card reveal delay-3">
                 <i class="fas fa-palette"></i>
                 <h4>Canva</h4>
-                <p>Layouting cepat, pembuatan thumbnail, banner, dan aset materi promosi.</p>
+                <p>Layouting cepat, pembuatan thumbnail, banner, dan materi promosi visual.</p>
             </div>
             <div class="skill-card reveal delay-4">
                 <i class="fas fa-robot"></i>
                 <h4>AI Tools</h4>
-                <p>Optimasi prompt visual, image generation & automasi skrip konten.</p>
+                <p>Optimasi prompt visual, image generation & automasi ide skrip konten.</p>
             </div>
         </div>
     </section>
 
-    <!-- 6. MANAJEMEN AKUN & ENGAGEMENT -->
+    <!-- 6. MANAJEMEN AKUN & FOTO PERKEMBANGAN (EL BRADER GUITAR SHOP) -->
     <section id="management">
-        <h2 class="section-title reveal">Manajemen Akun & Engagement</h2>
-        <div class="analytics-grid">
-            <div class="stat-card reveal delay-1">
-                <h3>Cliper Hub</h3>
-                <p class="account-handle">@cliperhub</p>
-                <div class="number">100K+</div>
-                <div class="label">Total Views / Month</div>
+        <h2 class="section-title reveal">Kelola Akun & Perkembangan</h2>
+        
+        <div class="analytics-box reveal delay-1">
+            <h3>El Brader Guitar Shop</h3>
+            <p class="account-handle">@elbraderguitar</p>
+            <div class="stats-group">
+                <div class="stat-item">
+                    <div class="number">15.5%</div>
+                    <div class="label">Avg. Engagement Rate</div>
+                </div>
+                <div class="stat-item">
+                    <div class="number">100K+</div>
+                    <div class="label">Monthly Reach</div>
+                </div>
             </div>
-            <div class="stat-card reveal delay-2">
-                <h3>El Brader Guitar Shop</h3>
-                <p class="account-handle">@elbraderguitar</p>
-                <div class="number">15.5%</div>
-                <div class="label">Avg. Engagement Rate</div>
+        </div>
+
+        <h3 style="text-align: center; color: #aaa; margin-bottom: 25px; font-size: 1.1rem;" class="reveal">Bukti Perkembangan Akun (2 Foto)</h3>
+        
+        <div class="photo-grid-2">
+            <div class="photo-card reveal delay-1">
+                <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=600" alt="Grafik Statistik 1">
+                <div class="photo-info">
+                    <h4>Analitik Engagement & Impresi</h4>
+                    <p>Bukti lonjakan jangkauan penonton dan interaksi konten.</p>
+                </div>
             </div>
-            <div class="stat-card reveal delay-3">
-                <h3>Personal Brand</h3>
-                <p class="account-handle">@danangageng</p>
-                <div class="number">50K+</div>
-                <div class="label">Total Reaches</div>
+            <div class="photo-card reveal delay-2">
+                <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=600" alt="Grafik Statistik 2">
+                <div class="photo-info">
+                    <h4>Pertumbuhan Followers & Views</h4>
+                    <p>Laporan konsistensi perkembangan akun secara organik.</p>
+                </div>
             </div>
         </div>
     </section>
 
-    <!-- 7. HASIL KARYA VIDEO (DENGAN PEMUTAR VIDEO LIVE) -->
-    <section id="portfolio">
-        <h2 class="section-title reveal">Hasil Karya Video</h2>
+    <!-- 7. HASIL KARYA VIDEO (5 VIDEOS) -->
+    <section id="videos">
+        <h2 class="section-title reveal">Hasil Karya Video (5 Video)</h2>
         <div class="video-grid">
             
-            <!-- Video Item 1 -->
+            <!-- Video 1 -->
             <div class="video-card reveal delay-1">
                 <div class="video-wrapper">
                     <video id="vid1" loop muted playsinline poster="https://images.unsplash.com/photo-1511671782779-c97d3d27a1d4?w=600">
                         <source src="https://assets.mixkit.co/videos/preview/mixkit-guitarist-playing-an-acoustic-guitar-41555-large.mp4" type="video/mp4">
-                        Browser kamu tidak mendukung pemutar video.
                     </video>
                 </div>
                 <div class="video-controls">
-                    <button class="btn-play" onclick="togglePlay('vid1', this)">
-                        <i class="fas fa-play"></i> Putar Video
-                    </button>
-                    <span style="font-size: 0.75rem; color: #888;">Format TikTok/Reels</span>
+                    <button class="btn-play" onclick="togglePlay('vid1', this)"><i class="fas fa-play"></i> Putar Video</button>
+                    <span style="font-size: 0.75rem; color: #888;">Video 1</span>
                 </div>
                 <div class="video-info">
                     <h4>Guitar Showcase POV</h4>
-                    <p>Konten promosi produk gitar dengan tone visual cinematic & audio fokus.</p>
+                    <p>Konten promosi produk gitar tone cinematic.</p>
                 </div>
             </div>
 
-            <!-- Video Item 2 -->
+            <!-- Video 2 -->
             <div class="video-card reveal delay-2">
                 <div class="video-wrapper">
                     <video id="vid2" loop muted playsinline poster="https://images.unsplash.com/photo-1461784121038-f088ca1e7714?w=600">
                         <source src="https://assets.mixkit.co/videos/preview/mixkit-hands-holding-a-smartphone-playing-a-video-41551-large.mp4" type="video/mp4">
-                        Browser kamu tidak mendukung pemutar video.
                     </video>
                 </div>
                 <div class="video-controls">
-                    <button class="btn-play" onclick="togglePlay('vid2', this)">
-                        <i class="fas fa-play"></i> Putar Video
-                    </button>
-                    <span style="font-size: 0.75rem; color: #888;">Format Shorts</span>
+                    <button class="btn-play" onclick="togglePlay('vid2', this)"><i class="fas fa-play"></i> Putar Video</button>
+                    <span style="font-size: 0.75rem; color: #888;">Video 2</span>
                 </div>
                 <div class="video-info">
-                    <h4>Editing Fast-Paced CapCut</h4>
-                    <p>Pemotongan ritmis berkecepatan tinggi dengan efek transisi menarik.</p>
+                    <h4>Fast-Paced Editing</h4>
+                    <p>Teknik cut ketat tempo cepat khas TikTok.</p>
+                </div>
+            </div>
+
+            <!-- Video 3 -->
+            <div class="video-card reveal delay-3">
+                <div class="video-wrapper">
+                    <video id="vid3" loop muted playsinline poster="https://images.unsplash.com/photo-1598488035139-bdbb2231ce04?w=600">
+                        <source src="https://assets.mixkit.co/videos/preview/mixkit-singing-into-a-microphone-in-a-recording-studio-41558-large.mp4" type="video/mp4">
+                    </video>
+                </div>
+                <div class="video-controls">
+                    <button class="btn-play" onclick="togglePlay('vid3', this)"><i class="fas fa-play"></i> Putar Video</button>
+                    <span style="font-size: 0.75rem; color: #888;">Video 3</span>
+                </div>
+                <div class="video-info">
+                    <h4>Audio & Studio Session</h4>
+                    <p>Visualizer audio dan cuplikan proses kreatif.</p>
+                </div>
+            </div>
+
+            <!-- Video 4 -->
+            <div class="video-card reveal delay-1">
+                <div class="video-wrapper">
+                    <video id="vid4" loop muted playsinline poster="https://images.unsplash.com/photo-1514525253161-7a46d19cd819?w=600">
+                        <source src="https://assets.mixkit.co/videos/preview/mixkit-playing-an-electric-guitar-41554-large.mp4" type="video/mp4">
+                    </video>
+                </div>
+                <div class="video-controls">
+                    <button class="btn-play" onclick="togglePlay('vid4', this)"><i class="fas fa-play"></i> Putar Video</button>
+                    <span style="font-size: 0.75rem; color: #888;">Video 4</span>
+                </div>
+                <div class="video-info">
+                    <h4>Electric Sound Check</h4>
+                    <p>Demo suara & fitur produk instrumen.</p>
+                </div>
+            </div>
+
+            <!-- Video 5 -->
+            <div class="video-card reveal delay-2">
+                <div class="video-wrapper">
+                    <video id="vid5" loop muted playsinline poster="https://images.unsplash.com/photo-1470225620780-dba8ba36b745?w=600">
+                        <source src="https://assets.mixkit.co/videos/preview/mixkit-dj-mixing-music-at-a-club-41557-large.mp4" type="video/mp4">
+                    </video>
+                </div>
+                <div class="video-controls">
+                    <button class="btn-play" onclick="togglePlay('vid5', this)"><i class="fas fa-play"></i> Putar Video</button>
+                    <span style="font-size: 0.75rem; color: #888;">Video 5</span>
+                </div>
+                <div class="video-info">
+                    <h4>Event & Highlight Recap</h4>
+                    <p>Editing kompilasi momen seru dan promosi acara.</p>
                 </div>
             </div>
 
         </div>
     </section>
 
-    <!-- 8. KONTAK SAYA -->
+    <!-- 8. HASIL FOTO PRODUK (5 FOTO) -->
+    <section id="products">
+        <h2 class="section-title reveal">Hasil Foto Produk (5 Foto)</h2>
+        <div class="photo-grid-5">
+            
+            <div class="photo-card reveal delay-1">
+                <img src="https://images.unsplash.com/photo-1564186763535-ebb21ef5277f?w=600" alt="Produk 1">
+                <div class="photo-info">
+                    <h4>Acoustic Guitar Detail</h4>
+                    <p>Color grading dark vintage.</p>
+                </div>
+            </div>
+
+            <div class="photo-card reveal delay-2">
+                <img src="https://images.unsplash.com/photo-1550291652-6ea9114a47b1?w=600" alt="Produk 2">
+                <div class="photo-info">
+                    <h4>Guitar Pickguard Custom</h4>
+                    <p>Focus lighting & tekstur kayu.</p>
+                </div>
+            </div>
+
+            <div class="photo-card reveal delay-3">
+                <img src="https://images.unsplash.com/photo-1525201548942-d8732f6617a0?w=600" alt="Produk 3">
+                <div class="photo-info">
+                    <h4>Electric Body Aesthetics</h4>
+                    <p>Pengambilan sudut cinematic.</p>
+                </div>
+            </div>
+
+            <div class="photo-card reveal delay-4">
+                <img src="https://images.unsplash.com/photo-1510915361894-db8b60106cb1?w=600" alt="Produk 4">
+                <div class="photo-info">
+                    <h4>Preamplifier & Tuning Hardware</h4>
+                    <p>Foto produk komersial bersih.</p>
+                </div>
+            </div>
+
+            <div class="photo-card reveal delay-1">
+                <img src="https://images.unsplash.com/photo-1511671782779-c97d3d27a1d4?w=600" alt="Produk 5">
+                <div class="photo-info">
+                    <h4>Full Setup & Accessories</h4>
+                    <p>Layout katalog visual branding.</p>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- 9. KONTAK SAYA (WHATSAPP, EMAIL & INSTAGRAM) -->
     <section id="contact">
         <div class="contact-box reveal">
             <h2 class="section-title" style="margin-bottom: 15px;">Hubungi Saya</h2>
-            <p style="color: #aaa; margin-bottom: 20px;">Tertarik untuk kolaborasi konten atau kebutuhan editing video? Kontak saya sekarang!</p>
+            <p style="color: #aaa; margin-bottom: 20px;">Tertarik untuk kolaborasi pengelolaan akun atau pembuatan konten video/foto? Hubungi saya!</p>
             <div class="btn-group">
-                <a href="https://wa.me/6281234567890" target="_blank" class="btn btn-primary"><i class="fab fa-whatsapp"></i> WhatsApp</a>
-                <a href="https://instagram.com" target="_blank" class="btn"><i class="fab fa-instagram"></i> Instagram</a>
-                <a href="mailto:email@domain.com" class="btn"><i class="fas fa-envelope"></i> Email</a>
+                <a href="https://wa.me/6281240084048" target="_blank" class="btn btn-primary"><i class="fab fa-whatsapp"></i> 081240084048</a>
+                <a href="mailto:dngagng@gmail.com" class="btn"><i class="fas fa-envelope"></i> dngagng@gmail.com</a>
+                
+                <!-- ISI LINK INSTAGRAM KAMU DI SINI (GANTI href BILA SUDAH ADA) -->
+                <a href="https://instagram.com/" target="_blank" class="btn"><i class="fab fa-instagram"></i> @username_ig_kamu</a>
             </div>
         </div>
     </section>
@@ -572,7 +732,7 @@
             
             reveals.forEach(element => {
                 const elementTop = element.getBoundingClientRect().top;
-                const elementVisible = 100; // Jarak trigger animasi muncul
+                const elementVisible = 100;
                 
                 if (elementTop < windowHeight - elementVisible) {
                     element.classList.add('active');
@@ -586,7 +746,6 @@
         function togglePlay(videoId, btn) {
             const video = document.getElementById(videoId);
             if (video.paused) {
-                // Jeda video lain yang mungkin sedang menyala
                 document.querySelectorAll('video').forEach(v => v.pause());
                 document.querySelectorAll('.btn-play').forEach(b => {
                     b.innerHTML = '<i class="fas fa-play"></i> Putar Video';
