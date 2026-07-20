@@ -3,95 +3,261 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Danang Ageng | Portofolio</title>
+    <title>Danang Ageng Priyambada | Portofolio</title>
+    <!-- Font & FontAwesome Icon -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
     <style>
         * {
             box-sizing: border-box;
             margin: 0;
             padding: 0;
         }
+
         body {
-            background-color: #0f0f0f;
+            background-color: #0b0b0b;
             color: #ffffff;
             font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-            padding: 20px;
+            overflow-x: hidden;
+        }
+
+        /* --- PRELOADER / LOADING SCREEN ANIMATION --- */
+        #preloader {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100vh;
+            background-color: #0b0b0b;
             display: flex;
             flex-direction: column;
+            justify-content: center;
             align-items: center;
+            z-index: 9999;
+            transition: opacity 0.5s ease, visibility 0.5s ease;
         }
+
+        .spinner {
+            width: 50px;
+            height: 50px;
+            border: 3px solid rgba(255, 255, 255, 0.1);
+            border-top-color: #f39c12;
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+            margin-bottom: 20px;
+        }
+
+        .loader-text {
+            font-size: 0.9rem;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            color: #e0e0e0;
+            font-weight: 600;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        .hide-preloader {
+            opacity: 0;
+            visibility: hidden;
+        }
+
+        /* --- HERO SECTION --- */
         header {
             text-align: center;
-            margin-top: 30px;
-            margin-bottom: 40px;
+            padding: 60px 20px 40px;
+            animation: fadeIn 1s ease-in-out;
         }
+
         h1 {
-            font-size: 2rem;
+            font-size: 2.2rem;
             letter-spacing: 2px;
             margin-bottom: 10px;
-            color: #ffffff;
+            text-transform: uppercase;
+            background: linear-gradient(45deg, #ffffff, #888888);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
         }
+
         p.subtitle {
-            color: #aaa;
-            font-size: 0.95rem;
+            color: #f39c12;
+            font-size: 1rem;
+            letter-spacing: 1px;
+            margin-bottom: 20px;
         }
+
+        /* --- TOMBOL KONTAK & SOSMED --- */
+        .contact-bar {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            flex-wrap: wrap;
+            margin-top: 20px;
+        }
+
+        .btn-contact {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 10px 20px;
+            background: #1a1a1a;
+            color: #fff;
+            text-decoration: none;
+            border-radius: 25px;
+            border: 1px solid #333;
+            font-size: 0.85rem;
+            transition: all 0.3s ease;
+        }
+
+        .btn-contact:hover {
+            border-color: #f39c12;
+            color: #f39c12;
+            transform: translateY(-3px);
+        }
+
+        /* --- GALERI PORTOFOLIO --- */
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
         .gallery {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 20px;
-            width: 100%;
-            max-width: 1000px;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
         }
+
         .card {
-            background-color: #1a1a1a;
+            background-color: #141414;
             border-radius: 12px;
             overflow: hidden;
-            border: 1px solid #2a2a2a;
+            border: 1px solid #222;
+            transition: transform 0.3s ease, border-color 0.3s ease;
         }
+
+        .card:hover {
+            transform: translateY(-5px);
+            border-color: #f39c12;
+        }
+
         .card img {
             width: 100%;
-            height: 250px;
+            height: 220px;
             object-fit: cover;
             display: block;
         }
+
         .card-info {
-            padding: 15px;
+            padding: 20px;
         }
+
         .card-info h3 {
             font-size: 1.1rem;
-            margin-bottom: 5px;
+            margin-bottom: 8px;
+            color: #fff;
         }
+
         .card-info p {
             font-size: 0.85rem;
-            color: #888;
+            color: #aaa;
+            line-height: 1.5;
+        }
+
+        /* --- FOOTER --- */
+        footer {
+            text-align: center;
+            padding: 40px 20px;
+            color: #555;
+            font-size: 0.8rem;
+            border-top: 1px solid #1a1a1a;
+            margin-top: 50px;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
         }
     </style>
 </head>
 <body>
 
+    <!-- PRELOADER ANIMATION (DIJAMIN TIDAK MUTEN-MUTER) -->
+    <div id="preloader">
+        <div class="spinner"></div>
+        <div class="loader-text">DANANG AGENG PRIYAMBADA</div>
+    </div>
+
+    <!-- MAIN CONTENT -->
     <header>
         <h1>DANANG AGENG PRIYAMBADA</h1>
-        <p class="subtitle">Portofolio Karya & Konten Kreatif</p>
+        <p class="subtitle">Content Creator & Visual Specialist</p>
+
+        <!-- TOMBOL KONTAK LENGKAP -->
+        <div class="contact-bar">
+            <a href="https://wa.me/6281234567890" target="_blank" class="btn-contact">
+                <i class="fab fa-whatsapp"></i> WhatsApp
+            </a>
+            <a href="https://instagram.com/" target="_blank" class="btn-contact">
+                <i class="fab fa-instagram"></i> Instagram
+            </a>
+            <a href="mailto:email@domain.com" class="btn-contact">
+                <i class="fas fa-envelope"></i> Email
+            </a>
+        </div>
     </header>
 
-    <div class="gallery">
-        <!-- Foto 1 -->
-        <div class="card">
-            <img src="https://via.placeholder.com/600x400/222/fff?text=Foto+1" alt="Karya 1">
-            <div class="card-info">
-                <h3>Judul Karya 1</h3>
-                <p>Deskripsi singkat karya kamu.</p>
+    <div class="container">
+        <div class="gallery">
+            <!-- Kartu Portofolio 1 -->
+            <div class="card">
+                <img src="https://images.unsplash.com/photo-1511671782779-c97d3d27a1d4?w=600&auto=format&fit=crop" alt="Karya 1">
+                <div class="card-info">
+                    <h3>Project Showcase 01</h3>
+                    <p>Deskripsi karya visual atau konten yang sudah dibuat. Bisa diisi informasi detail proyek.</p>
+                </div>
             </div>
-        </div>
 
-        <!-- Foto 2 -->
-        <div class="card">
-            <img src="https://via.placeholder.com/600x400/222/fff?text=Foto+2" alt="Karya 2">
-            <div class="card-info">
-                <h3>Judul Karya 2</h3>
-                <p>Deskripsi singkat karya kamu.</p>
+            <!-- Kartu Portofolio 2 -->
+            <div class="card">
+                <img src="https://images.unsplash.com/photo-1461784121038-f088ca1e7714?w=600&auto=format&fit=crop" alt="Karya 2">
+                <div class="card-info">
+                    <h3>Project Showcase 02</h3>
+                    <p>Deskripsi karya visual atau konten yang sudah dibuat. Bisa diisi informasi detail proyek.</p>
+                </div>
+            </div>
+
+            <!-- Kartu Portofolio 3 -->
+            <div class="card">
+                <img src="https://images.unsplash.com/photo-1598488035139-bdbb2231ce04?w=600&auto=format&fit=crop" alt="Karya 3">
+                <div class="card-info">
+                    <h3>Project Showcase 03</h3>
+                    <p>Deskripsi karya visual atau konten yang sudah dibuat. Bisa diisi informasi detail proyek.</p>
+                </div>
             </div>
         </div>
     </div>
 
+    <footer>
+        <p>&copy; 2026 Danang Ageng Priyambada. All rights reserved.</p>
+    </footer>
+
+    <!-- SCRIPT MATIKAN PRELOADER AMAN & OTOMATIS -->
+    <script>
+        function removePreloader() {
+            const preloader = document.getElementById('preloader');
+            if (preloader && !preloader.classList.contains('hide-preloader')) {
+                preloader.classList.add('hide-preloader');
+            }
+        }
+
+        // Matikan preloader saat halaman selesai dimuat
+        window.addEventListener('load', removePreloader);
+
+        // BATAS SAFETY TIMEOUT: Maksimal 1.5 detik loading langsung hilang otomatis!
+        setTimeout(removePreloader, 1500);
+    </script>
 </body>
 </html>
