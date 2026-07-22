@@ -860,17 +860,30 @@ h2.text-highlight {
 
     <!-- JAVASCRIPT ANIMASI SCROLL & VIDEO CONTROL -->
     <script>
-// 1. Preloader Animation
+// 1. PRELOADER ANIMATION (Tetap Ada & Pudar Mulus)
 function hideLoader() {
-    const preloader = document.getElementById('preloader');
-    if (preloader && !preloader.classList.contains('hidden')) {
-        preloader.classList.add('hidden');
+    const preloader = document.getElementById('preloader') || document.querySelector('.preloader');
+    if (preloader) {
+        // Beri efek transisi pudar (fade out) 0.5 detik
+        preloader.style.transition = 'opacity 0.5s ease, visibility 0.5s ease';
+        preloader.style.opacity = '0';
+        preloader.style.visibility = 'hidden';
+        
+        // Hapus total dari antarmuka setelah pudar selesai
+        setTimeout(() => {
+            preloader.style.display = 'none';
+        }, 500);
     }
 }
-window.addEventListener('load', hideLoader);
-setTimeout(hideLoader, 1000);
 
-// 2. Scroll Reveal & Highlight Text
+// Menjalankan preloader saat semua elemen selesai dimuat
+window.addEventListener('load', hideLoader);
+
+// Pengaman tambahan: Maksimal 1.2 detik preloader memutar lalu pudar
+setTimeout(hideLoader, 1200);
+
+
+// 2. SCROLL REVEAL & HIGHLIGHT TEKS
 document.addEventListener("DOMContentLoaded", function() {
     const observerOptions = {
         root: null,
@@ -893,7 +906,8 @@ document.addEventListener("DOMContentLoaded", function() {
     });
 });
 
-// 3. Kontrol Putar & Jeda Video
+
+// 3. KONTROL PUTAR & JEDA VIDEO
 function togglePlay(videoId, btn) {
     const video = document.getElementById(videoId);
     if (video.paused) {
