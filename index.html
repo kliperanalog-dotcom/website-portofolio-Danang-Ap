@@ -519,7 +519,42 @@
             border-color: #f39c12;
             box-shadow: 0 10px 20px rgba(0,0,0,0.4);
         }
+/* Container & Tata Letak Section */
+.about-section {
+    padding: 80px 20px;
+    background-color: #0d0d0d;
+    max-width: 800px;
+    margin: 0 auto;
+}
 
+/* Kondisi Awal Teks (Gelap & Redup) */
+.text-highlight {
+    color: #2a2a2a;
+    opacity: 0.3;
+    transform: translateY(20px);
+    transition: color 0.8s cubic-bezier(0.16, 1, 0.3, 1), 
+                opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), 
+                transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+    font-size: 1.15rem;
+    line-height: 1.8;
+    margin-bottom: 16px;
+}
+
+/* Judul Utama */
+h2.text-highlight {
+    font-size: 2.2rem;
+    font-weight: 700;
+    margin-bottom: 28px;
+    letter-spacing: -0.5px;
+}
+
+/* KELAS AKTIF (Saat di-scroll: Berubah Putih) */
+.text-highlight.active {
+    color: #ffffff !important;
+    opacity: 1 !important;
+    transform: translateY(0) !important;
+    text-shadow: 0 0 15px rgba(255, 255, 255, 0.15);
+}
         footer {
             text-align: center;
             padding: 35px;
@@ -565,12 +600,29 @@
     </section>
 
     <!-- 4. TENTANG SAYA -->
-    <section id="about">
-        <h2 class="section-title reveal-up">Tentang Saya</h2>
-        <p class="about-text reveal-up delay-1">
-            Halo! Saya Danang Ageng Priyambada. Berpengalaman sebagai Admin, Content Creator, dan Editor Video/Foto. Saya mengombinasikan strategi manajemen konten, estetika visual & cinematic, serta eksekusi pengeditan presisi tinggi menggunakan tools modern berbasis AI dan aplikasi editing terkini.
-        </p>
-    </section>
+    <section id="about" class="about-section">
+    <div class="container">
+        <!-- Judul -->
+        <h2 class="scroll-reveal text-highlight">Tentang Saya</h2>
+        
+        <div class="about-content">
+            <!-- Kalimat 1 -->
+            <p class="scroll-reveal text-highlight">
+                Halo! Saya <strong>Danang Ageng Priyambada</strong>.
+            </p>
+            
+            <!-- Kalimat 2 -->
+            <p class="scroll-reveal text-highlight">
+                Berpengalaman sebagai <strong>Admin</strong>, <strong>Content Creator</strong>, dan <strong>Editor Video/Foto</strong>.
+            </p>
+            
+            <!-- Kalimat 3 -->
+            <p class="scroll-reveal text-highlight">
+                Saya mengombinasikan strategi manajemen konten, estetika visual &amp; cinematic, serta eksekusi pengeditan presisi tinggi menggunakan tools modern berbasis AI dan aplikasi editing terkini.
+            </p>
+        </div>
+    </div>
+</section>
 
     <!-- 5. KEAHLIAN SOFTWARE -->
     <section id="software">
@@ -852,7 +904,29 @@
                 video.pause();
                 btn.innerHTML = '<i class="fas fa-play"></i> Putar';
             }
-        }
-    </script>
+            <script>
+document.addEventListener("DOMContentLoaded", function() {
+    const observerOptions = {
+        root: null,
+        rootMargin: '0px 0px -10% 0px',
+        threshold: 0.15
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('active');
+            }
+        });
+    }, observerOptions);
+
+    const elements = document.querySelectorAll('.text-highlight');
+    elements.forEach((el, index) => {
+        el.style.transitionDelay = `${index * 0.18}s`;
+        observer.observe(el);
+    });
+});
+</script>
+       
 </body>
 </html>
