@@ -860,52 +860,17 @@ h2.text-highlight {
 
     <!-- JAVASCRIPT ANIMASI SCROLL & VIDEO CONTROL -->
     <script>
-        // 1. PRELOADER ANIMATION
-        function hideLoader() {
-            const preloader = document.getElementById('preloader');
-            if (preloader && !preloader.classList.contains('hide-preloader')) {
-                preloader.classList.add('hide-preloader');
-            }
-        }
-        window.addEventListener('load', hideLoader);
-        setTimeout(hideLoader, 1000);
+// 1. Preloader Animation
+function hideLoader() {
+    const preloader = document.getElementById('preloader');
+    if (preloader && !preloader.classList.contains('hidden')) {
+        preloader.classList.add('hidden');
+    }
+}
+window.addEventListener('load', hideLoader);
+setTimeout(hideLoader, 1000);
 
-        // 2. INTERSECTION OBSERVER FOR SMOOTH SCROLL REVEAL
-        const observerOptions = {
-            threshold: 0.15,
-            rootMargin: "0px 0px -50px 0px"
-        };
-
-        const revealObserver = new IntersectionObserver((entries, observer) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('reveal-active');
-                }
-            });
-        }, observerOptions);
-
-        document.addEventListener("DOMContentLoaded", () => {
-            const targets = document.querySelectorAll('.reveal-up, .reveal-slide-left, .reveal-slide-right');
-            targets.forEach(target => revealObserver.observe(target));
-        });
-
-        // 3. KONTROL PUTAR & JEDA VIDEO
-        function togglePlay(videoId, btn) {
-            const video = document.getElementById(videoId);
-            if (video.paused) {
-                document.querySelectorAll('video').forEach(v => v.pause());
-                document.querySelectorAll('.btn-play').forEach(b => {
-                    b.innerHTML = '<i class="fas fa-play"></i> Putar';
-                });
-
-                video.play();
-                btn.innerHTML = '<i class="fas fa-pause"></i> Jeda';
-            } else {
-                video.pause();
-                btn.innerHTML = '<i class="fas fa-play"></i> Putar';
-            }
-            </script>
-            <script>
+// 2. Scroll Reveal & Highlight Text
 document.addEventListener("DOMContentLoaded", function() {
     const observerOptions = {
         root: null,
@@ -921,13 +886,27 @@ document.addEventListener("DOMContentLoaded", function() {
         });
     }, observerOptions);
 
-    const elements = document.querySelectorAll('.text-highlight');
+    const elements = document.querySelectorAll('.text-highlight, .scroll-reveal');
     elements.forEach((el, index) => {
-        el.style.transitionDelay = `${index * 0.18}s`;
+        el.style.transitionDelay = `${index * 0.15}s`;
         observer.observe(el);
     });
 });
+
+// 3. Kontrol Putar & Jeda Video
+function togglePlay(videoId, btn) {
+    const video = document.getElementById(videoId);
+    if (video.paused) {
+        document.querySelectorAll('video').forEach(v => v.pause());
+        document.querySelectorAll('.btn-play i').forEach(b => b.className = 'fas fa-play');
+        video.play();
+        btn.innerHTML = '<i class="fas fa-pause"></i>';
+    } else {
+        video.pause();
+        btn.innerHTML = '<i class="fas fa-play"></i>';
+    }
+}
 </script>
-       
+
 </body>
 </html>
